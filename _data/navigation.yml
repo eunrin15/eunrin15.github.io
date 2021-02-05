@@ -10,7 +10,7 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
-  - title: "네이버"
-    url:  https://naver.com
-  - title: "구글"
-    url: https://google.com
+  - title: "Categories"
+    url: /categories/
+  - title: "Tags"
+    url: /tags/
