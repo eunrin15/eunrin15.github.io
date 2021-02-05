@@ -127,7 +127,7 @@ build tool : maven의 핵심인 빌드와 관련된 정보를 설정할 수 있�
 <build> 부분에서 설정할 수 있는 값들에 대해 설명하기 전에 "라이프 사이클(life-cycle"에 대해서 알 필요가 있다.<br>
 객체의 생명주기처럼 maven에는 라이프 사이클이 존재한다.<br>
 크게 default, clean, site 라이프 사이클로 나누고 세부적으로 페이즈(phase) 있다.<br>
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile21.uf.tistory.com%2Fimage%2F999B12465BBC992C202A89" width="70%" height="50%" title="%(비율) 크기 설정" alt="RubberDuck"></img><br>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile21.uf.tistory.com%2Fimage%2F999B12465BBC992C202A89" width="70%" height="50%" title="%(비율) 크기 설정" alt="RubberDuck">
 
 메이븐의 모든 기능은 플러그인(plugin)을 기반으로 동작한다.<br>
 플러그인에서 실행할 수 있는 각각의 작업을 골(goal)이라하고 하나의 페이즈는 하나의 골과 연결되며, 하나의 플러그인에는 여러 개의 골이 있을 수 있다.<br>
