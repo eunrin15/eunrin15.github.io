@@ -127,7 +127,7 @@ build tool : maven의 핵심인 빌드와 관련된 정보를 설정할 수 있�
 <build> 부분에서 설정할 수 있는 값들에 대해 설명하기 전에 "라이프 사이클(life-cycle"에 대해서 알 필요가 있다.<br>
 객체의 생명주기처럼 maven에는 라이프 사이클이 존재한다.<br>
 크게 default, clean, site 라이프 사이클로 나누고 세부적으로 페이즈(phase) 있다.<br>
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile21.uf.tistory.com%2Fimage%2F999B12465BBC992C202A89" width="40%" height="30%" title="%(비율) 크기 설정" alt="RubberDuck"></img><br>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile21.uf.tistory.com%2Fimage%2F999B12465BBC992C202A89" width="70%" height="50%" title="%(비율) 크기 설정" alt="RubberDuck"></img><br>
 
 메이븐의 모든 기능은 플러그인(plugin)을 기반으로 동작한다.<br>
 플러그인에서 실행할 수 있는 각각의 작업을 골(goal)이라하고 하나의 페이즈는 하나의 골과 연결되며, 하나의 플러그인에는 여러 개의 골이 있을 수 있다.<br>
@@ -174,9 +174,11 @@ plugin이 작성되어 있다고 무조건 실행되는 것은 아니다. 명확
 - <configuration> : 플러그인에서 필요한 설정 값 지정<br>
 
 apache CXF를 이용한 code generate 플러그인은 아래에서 소개되고 사용한다.<br>
+
 ```
 http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html
 ```
+
 ```xml
 <plugin>
     <groupId>org.apache.cxf</groupId>
@@ -202,7 +204,9 @@ http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html
 </plugin>
 ```
 
-4. 배포
+### 배포
+---
+
 ```xml
 <project>
   ...
@@ -215,11 +219,12 @@ http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html
   ...
 </project>
 ```
+
 사이트로 배포할 때 위와 같이 설정할 수도 있다.
 
-번외. <Parent> pom.xml 상속
-
-<Parent> : pom.xml은 상속을 받을 수 있다.<br>
+### 번외. <Parent> pom.xml 상속
+---
+Parent : pom.xml은 상속을 받을 수 있다.<br>
 스프링부트의 경우 부모 pom.xml에 자주 사용하는 라이브러리들의 버전정보나 dependency들을 이미 가지고 있어서 참조하기 편리하다.<br>
 참고로 super pom.xml이라는 것이 있다.<br>
 모든 pom.xml이 기본적으로 상속하고 있는 부모 설정파일로 이것 때문에 기본으로 생성된 pom.xml에 별 내용이 없어도 잘 처리한다.<br>
@@ -227,6 +232,7 @@ http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html
 
 ##### 참고한 사이트
 ---
+
 ```
 https://goddaehee.tistory.com/199
 https://jeong-pro.tistory.com/168
