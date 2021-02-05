@@ -126,68 +126,57 @@ dependency에 <scope>의 경우 compile, runtime, provided, test등이 올 수 �
 build tool : maven의 핵심인 빌드와 관련된 정보를 설정할 수 있는 곳이다.<br>
 <build> 부분에서 설정할 수 있는 값들에 대해 설명하기 전에 "라이프 사이클(life-cycle"에 대해서 알 필요가 있다.<br>
 객체의 생명주기처럼 maven에는 라이프 사이클이 존재한다.<br>
-크게 default, clean, site 라이프 사이클로 나누고 세부적으로 페이즈(phase) 있다.
-![Maven 라이프 사이클](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile21.uf.tistory.com%2Fimage%2F999B12465BBC992C202A89)
+크게 default, clean, site 라이프 사이클로 나누고 세부적으로 페이즈(phase) 있다.<br>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile21.uf.tistory.com%2Fimage%2F999B12465BBC992C202A89" width="40%" height="30%" title="%(비율) 크기 설정" alt="RubberDuck"></img><br>
 
-메이븐의 모든 기능은 플러그인(plugin)을 기반으로 동작한다.
+메이븐의 모든 기능은 플러그인(plugin)을 기반으로 동작한다.<br>
+플러그인에서 실행할 수 있는 각각의 작업을 골(goal)이라하고 하나의 페이즈는 하나의 골과 연결되며, 하나의 플러그인에는 여러 개의 골이 있을 수 있다.<br>
 
-플러그인에서 실행할 수 있는 각각의 작업을 골(goal)이라하고 하나의 페이즈는 하나의 골과 연결되며, 하나의 플러그인에는 여러 개의 골이 있을 수 있다.
+### 라이프 사이클
+---
+mvn process-resources : resources:resources의 실행으로 resource 디렉토리에 있는 내용을 target/classes로 복사한다.<br>
+mvn compile : compiler:compile의 실행으로 src/java 밑의 모든 자바 소스를 컴파일해서 target/classes로 복사<br>
+mvn process-testResources, mvn test-compile : 이것은 위의 두 개가 src/java였다면 test/java의 내용을 target/test-classes로 복사. (참고로 test만 mvn test 명령을 내리면 라이프사이클상 원본 소스로 컴파일된다.)<br>
+mvn test : surefire:test의 실행으로 target/test-classes에 있는 테스트케이스의 단위테스트를 진행한다. 결과를 target/surefire-reports에 생성한다.<br>
+mvn package : target디렉토리 하위에 jar, war, ear등 패키지파일을 생성하고 이름은 <build>의 <finalName>의 값을 사용한다 지정되지 않았을 때는 아까 설명한 "artifactId-version.extention" 이름으로 생성<br>
+mvn install : 로컬 저장소로 배포<br>
+mvn deploy : 원격 저장소로 배포<br>
+mvn clean : 빌드 과정에서 생긴 target 디렉토리 내용 삭제<br>
+mvn site : target/site에 문서 사이트 생성<br>
+mvn site-deploy : 문서 사이트를 서버로 배포<br>
 
-* 라이프 사이클
+위와 같은 진행 순서로 라이프 사이클이 진행된다.<br>
 
-mvn process-resources : resources:resources의 실행으로 resource 디렉토리에 있는 내용을 target/classes로 복사한다.
+이제 <build>에서 설정할 수 있는 값을 확인해보자.<br>
 
-mvn compile : compiler:compile의 실행으로 src/java 밑의 모든 자바 소스를 컴파일해서 target/classes로 복사
+<finalName> : 빌드 결과물(ex .jar) 이름 설정<br>
 
-mvn process-testResources, mvn test-compile : 이것은 위의 두 개가 src/java였다면 test/java의 내용을 target/test-classes로 복사. (참고로 test만 mvn test 명령을 내리면 라이프사이클상 원본 소스로 컴파일된다.)
+<resources> : 리소스(각종 설정 파일)의 위치를 지정할 수 있다.<br>
 
-mvn test : surefire:test의 실행으로 target/test-classes에 있는 테스트케이스의 단위테스트를 진행한다. 결과를 target/surefire-reports에 생성한다.
+- <resource> : 없으면 기본으로 "src/main/resources"<br>
 
-mvn package : target디렉토리 하위에 jar, war, ear등 패키지파일을 생성하고 이름은 <build>의 <finalName>의 값을 사용한다 지정되지 않았을 때는 아까 설명한 "artifactId-version.extention" 이름으로 생성
+<testResources> : 테스트 리소스의 위치를 지정할 수 있다.<br>
 
-mvn install : 로컬 저장소로 배포
+- <testResource> : 없으면 기본으로 "src/test/resources"<br>
 
-mvn deploy : 원격 저장소로 배포
+<Repositories> : 빌드할 때 접근할 저장소의 위치를 지정할 수 있다. 기본적으로 메이븐 중앙 저장소인 http://repo1.maven.org/maven2로 지정되어 있다.<br>
 
-mvn clean : 빌드 과정에서 생긴 target 디렉토리 내용 삭제
+<outputDirectory> : 컴파일한 결과물 위치 값 지정, 기본 "target/classes"<br>
 
-mvn site : target/site에 문서 사이트 생성
+<testOutputDirectory> : 테스트 소스를 컴파일한 결과물 위치 값 지정, 기본 "target/test-classes"<br>
 
-mvn site-deploy : 문서 사이트를 서버로 배포
+<plugin> : 어떠한 액션 하나를 담당하는 것으로 가장 중요하지만 들어가는 옵션은 제 각각이다. 다행인 것은 플러그인 형식에 대한 것은 안내가 나와있으니 그것을 참고해서 작성하면 된다.<br>
 
-위와 같은 진행 순서로 라이프 사이클이 진행된다.
+plugin이 작성되어 있다고 무조건 실행되는 것은 아니다. 명확한 것은 아니지만 따로 실행할 플러그인을 메이븐 명령어로 실행해야 하는 것으로 알고 있다.<br>
 
+- <executions> : 플러그인 goal과 관련된 실행에 대한 설정<br>
 
+- <configuration> : 플러그인에서 필요한 설정 값 지정<br>
 
-이제 <build>에서 설정할 수 있는 값을 확인해보자.
-
-<finalName> : 빌드 결과물(ex .jar) 이름 설정
-
-<resources> : 리소스(각종 설정 파일)의 위치를 지정할 수 있다.
-
-- <resource> : 없으면 기본으로 "src/main/resources"
-
-<testResources> : 테스트 리소스의 위치를 지정할 수 있다.
-
-- <testResource> : 없으면 기본으로 "src/test/resources"
-
-<Repositories> : 빌드할 때 접근할 저장소의 위치를 지정할 수 있다. 기본적으로 메이븐 중앙 저장소인 http://repo1.maven.org/maven2로 지정되어 있다.
-
-<outputDirectory> : 컴파일한 결과물 위치 값 지정, 기본 "target/classes"
-
-<testOutputDirectory> : 테스트 소스를 컴파일한 결과물 위치 값 지정, 기본 "target/test-classes"
-
-<plugin> : 어떠한 액션 하나를 담당하는 것으로 가장 중요하지만 들어가는 옵션은 제 각각이다. 다행인 것은 플러그인 형식에 대한 것은 안내가 나와있으니 그것을 참고해서 작성하면 된다.
-
-plugin이 작성되어 있다고 무조건 실행되는 것은 아니다. 명확한 것은 아니지만 따로 실행할 플러그인을 메이븐 명령어로 실행해야 하는 것으로 알고 있다.
-
-- <executions> : 플러그인 goal과 관련된 실행에 대한 설정
-
-- <configuration> : 플러그인에서 필요한 설정 값 지정
-
-apache CXF를 이용한 code generate 플러그인은 아래에서 소개되고 사용한다.
-
+apache CXF를 이용한 code generate 플러그인은 아래에서 소개되고 사용한다.<br>
+```
 http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html
+```
 ```xml
 <plugin>
     <groupId>org.apache.cxf</groupId>
@@ -230,11 +219,11 @@ http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html
 
 번외. <Parent> pom.xml 상속
 
-<Parent> : pom.xml은 상속을 받을 수 있다. 스프링부트의 경우 부모 pom.xml에 자주 사용하는 라이브러리들의 버전정보나 dependency들을 이미 가지고 있어서 참조하기 편리하다.
-
-* 참고로 super pom.xml이라는 것이 있다.
-
-모든 pom.xml이 기본적으로 상속하고 있는 부모 설정파일로 이것 때문에 기본으로 생성된 pom.xml에 별 내용이 없어도 잘 처리한다. 물론 생성된 pom.xml에서 설정 값을 오버라이드하면 super pom.xml 내용을 변경할 수 있다.
+<Parent> : pom.xml은 상속을 받을 수 있다.<br>
+스프링부트의 경우 부모 pom.xml에 자주 사용하는 라이브러리들의 버전정보나 dependency들을 이미 가지고 있어서 참조하기 편리하다.<br>
+참고로 super pom.xml이라는 것이 있다.<br>
+모든 pom.xml이 기본적으로 상속하고 있는 부모 설정파일로 이것 때문에 기본으로 생성된 pom.xml에 별 내용이 없어도 잘 처리한다.<br>
+물론 생성된 pom.xml에서 설정 값을 오버라이드하면 super pom.xml 내용을 변경할 수 있다.<br><br>
 
 ##### 참고한 사이트
 ---
