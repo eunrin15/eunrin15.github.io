@@ -173,11 +173,9 @@ plugin이 작성되어 있다고 무조건 실행되는 것은 아니다. 명확
 
 - <configuration> : 플러그인에서 필요한 설정 값 지정<br>
 
-apache CXF를 이용한 code generate 플러그인은 아래에서 소개되고 사용한다.<br>
-
-```
-http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html
-```
+### apache CXF를 이용한 code generate 플러그인은 아래에서 소개되고 사용한다.
+---
+http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html<br>
 
 ```xml
 <plugin>
@@ -219,7 +217,6 @@ http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html
   ...
 </project>
 ```
-
 사이트로 배포할 때 위와 같이 설정할 수도 있다.
 
 ### 번외. <Parent> pom.xml 상속
@@ -228,7 +225,7 @@ Parent : pom.xml은 상속을 받을 수 있다.<br>
 스프링부트의 경우 부모 pom.xml에 자주 사용하는 라이브러리들의 버전정보나 dependency들을 이미 가지고 있어서 참조하기 편리하다.<br>
 참고로 super pom.xml이라는 것이 있다.<br>
 모든 pom.xml이 기본적으로 상속하고 있는 부모 설정파일로 이것 때문에 기본으로 생성된 pom.xml에 별 내용이 없어도 잘 처리한다.<br>
-물론 생성된 pom.xml에서 설정 값을 오버라이드하면 super pom.xml 내용을 변경할 수 있다.<br><br>
+물론 생성된 pom.xml에서 설정 값을 오버라이드하면 super pom.xml 내용을 변경할 수 있다.
 
 ##### 참고한 사이트
 ---
