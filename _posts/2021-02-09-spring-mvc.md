@@ -7,8 +7,8 @@ categories:
 tags:
   - [Java, Javascript, Spring, maven]
 
-toc: true
-toc_sticky: true
+header:
+    toc: true
  
 date: 2021-02-09
 last_modified_at: 2021-02-09
@@ -102,7 +102,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd>
 
 ### HandlerMapping
 ---
-1. RequestMappingHandlerMapping (DefaultAnnotationHandlerMapping는 deprecated)
+1. RequestMappingHandlerMapping<br>(DefaultAnnotationHandlerMapping는 deprecated)
 - @MVC 개발을 위한 HandlerMapping. 표준프레임워크 3.0(Spring 3.2.9)에서 사용가능.
 - 기존 DefaultAnnotationHandlerMapping이 deprecated되면서 대체됨.
 - @RequestMapping에 지정된 url과 해당 Controller의 메소드 매핑
@@ -123,3 +123,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd>
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
 </beans>
 ```
+
+2. SimpleUrlAnnotationHandlerMapping<br>(표준프레임워크3.0부터deprecated됨 mvc 태그로 변경)
+- DefaultAnnotationHandlerMapping은 특정 url에 대해 interceptor를 적용할수 없음. -> 확장 HandlerMapping
+- DefaultAnnotationHandlerMapping과 함께 사용. (order 프로퍼티를 SimpleUrlAnnotationHandlerMapping에 준다.)
