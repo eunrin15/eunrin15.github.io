@@ -19,7 +19,7 @@ locale                   : "ko-KR"
 title                    : "스터디 블로그 : study note"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "dhkwon"
+name                     : "KDH"
 description              : "공부한 것들 정리용입니다."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -207,7 +207,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 3 # amount of posts to show
+paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: Asia/Seoul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
