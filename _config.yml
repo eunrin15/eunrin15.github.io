@@ -19,7 +19,7 @@ locale                   : "ko-KR"
 title                    : "공부 정리용 사이트"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "ehgns"
+name                     : "dhkwon"
 description              : "공부한 것들 정리용 사이트입니다."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
