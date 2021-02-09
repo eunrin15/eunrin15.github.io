@@ -55,22 +55,22 @@ jQuery Ajax기능을 위해서는 기본적으로 jQuery.ajax(url[,settings]) �
 
 ```javascript
 $.ajax({
-type : "POST",
-url : "<c:url value='/example01.do'/>",
-contentType: "application/x-www-form-urlennocoded; charset=UTF-8",
-dataType:'json',
-data : {
-sampleInput : "sampleData"
-},
-success : function(data, status, jqXHR) {
-// 통신이 정상적일때 해당 함수 실행
-},
-error : function(request, status, error){
-// 통신이 비정상적일때 해당 함수 실행
-},
-complete : function(jqXHR, status) {
-//통신의 성공과 실패시 해당 함수 실행
-}
+  type : "POST",
+  url : "<c:url value='/example01.do'/>",
+  contentType: "application/x-www-form-urlennocoded; charset=UTF-8",
+  dataType:'json',
+  data : {
+  sampleInput : "sampleData"
+  },
+  success : function(data, status, jqXHR) {
+  // 통신이 정상적일때 해당 함수 실행
+  },
+  error : function(request, status, error){
+  // 통신이 비정상적일때 해당 함수 실행
+  },
+  complete : function(jqXHR, status) {
+  //통신의 성공과 실패시 해당 함수 실행
+  }
 });
 ```
 
