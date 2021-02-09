@@ -22,7 +22,8 @@ jQuery 1.5부터 jQuery의 모든 ajax함수는 XMLHttpRequest객체의 상위 �
 ---
 사용자 정의에 의해 순차적으로 실행<br>
 Ajax에서 request를 리턴받아 호출 가능<br>
-|함수명|설명
+
+|함수명|설명|
 |:----:|:----:|
 |jqXHR.done(function( data, textStatus, jqXHR ) {});|성공시 호출되는 콜백함수|
 |jqXHR.fail(function( jqXHR, textStatus, errorThrown ) {});|실패시 호출되는 콜백함수|
@@ -35,7 +36,7 @@ Ajax에서 request를 리턴받아 호출 가능<br>
 
 ###  callback함수 예제
 ---
-1. jqXHR(XMLHttpRquest) callback함수 예제1<br>
+- jqXHR(XMLHttpRquest) callback함수 예제1<br>
 여러 개의 데이터를 전달하며 호출 후 콜백함수로 서버에서 값을 받는 예제.<br>
 example02.do을 호출하며<br>
 name, location을 요청데이터로 전달<br>
@@ -56,7 +57,7 @@ $.ajax({
 });
 ```
 
-2. jqXHR(XMLHttpRquest) callback함수 예제2<br>
+- jqXHR(XMLHttpRquest) callback함수 예제2<br>
 example03.do를 호출하며 성공 시 done 콜백함수, 실패 시 fail 콜백함수 호출.<br>
 성공, 실패여부에 상관없이 always 콜백함수는 항상 호출<br>
 done, fail, always콜백함수는 ajax함수를 통해 리턴되어 request로 호출가능
@@ -107,19 +108,19 @@ $.ajax({
 
 ### jQuery.get() 예제
 ---
-1. url만 호출하고 결과값은 무시하는 경우
+- url만 호출하고 결과값은 무시하는 경우
 
 ```javascript
 $.get( "example.do" );
 ```
 
-2. url로 데이터만 보내고 결과는 무시하는 경우
+- url로 데이터만 보내고 결과는 무시하는 경우
 
 ```javascript
 $.get( "example.do", { name: "gil-dong", location: "seoul" } );
 ```
 
-3. url을 호출하고 결과값을 Alert창으로 띄우는 경우
+- url을 호출하고 결과값을 Alert창으로 띄우는 경우
 
 ```javascript
 $.get( " example.do", function( data ) {
@@ -127,7 +128,7 @@ $.get( " example.do", function( data ) {
 });
 ```
 
-4. url로 데이터를 보내고 결과값을 Alert창으로 띄우는 경우
+- url로 데이터를 보내고 결과값을 Alert창으로 띄우는 경우
 
 ```javascript
 $.get( "example.do", { name: "gil-dong", location: "seoul" } )
@@ -155,19 +156,19 @@ $.ajax({
 
 ### jQuery.POST() 예제
 ---
-1. url만 호출하고 결과값은 무시하는 경우
+- url만 호출하고 결과값은 무시하는 경우
 
 ```javascript
 $.post( "example.do" );
 ```
 
-2. url로 데이터만 보내고 결과는 무시하는 경우
+- url로 데이터만 보내고 결과는 무시하는 경우
 
 ```javascript
 $.post( "example.do", { name: "gil-dong", location: "seoul" } );
 ```
 
-3. url을 호출하고 결과값을 console log를 남기는 경우
+- url을 호출하고 결과값을 console log를 남기는 경우
 
 ```javascript
 $.post( "example.do", function( data ) {
@@ -176,7 +177,7 @@ $.post( "example.do", function( data ) {
 });
 ```
 
-4. url로 데이터를 보내고 결과값을 Alert창으로 띄우는 경우
+- url로 데이터를 보내고 결과값을 Alert창으로 띄우는 경우
 
 ```javascript
 $.post( "example.do", { name: "gil-dong", location: "seoul" } )

@@ -19,13 +19,13 @@ jQuery는 자바스크립트 프레임워크로서 간결한 문장의 표현으
 
 ### jQuery 설정
 ---
-1. jQuery url을 직접 명시<br>
+- jQuery url을 직접 명시<br>
 
 ```javascript
 <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 ```
 
-2. jQuery script를 직접 추가하여 참조<br>
+- jQuery script를 직접 추가하여 참조<br>
  jquery-버전.js를 다운받아 프로젝트 하위 경로에 추가한 후, 저장한 경로를 설정.<br>
 
 ```javascript
