@@ -9,7 +9,10 @@ tags:
 
 toc: true
 classes: wide
- 
+
+sidebar:
+  nav: "docs"
+
 date: 2021-02-09
 last_modified_at: 2021-02-09
 ---
