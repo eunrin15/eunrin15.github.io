@@ -5,7 +5,7 @@ excerpt: "MVC 정리"
 categories:
   - Spring
 tags:
-  - [Java, Javascript, Spring, maven]
+  - [Java, Javascript, Spring, MVC]
 
 toc: true
 classes: wide

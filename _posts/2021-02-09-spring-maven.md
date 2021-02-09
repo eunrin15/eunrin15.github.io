@@ -5,7 +5,7 @@ excerpt: "Maven 정리"
 categories:
   - Spring
 tags:
-  - [Java, Javascript, Spring, maven]
+  - [Java, Javascript, Spring, Maven]
 
 toc: true
 classes: wide

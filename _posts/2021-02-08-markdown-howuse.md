@@ -5,7 +5,7 @@ excerpt: "마크다운 작성법 세이브"
 categories:
   - Blog
 tags:
-  - [Blog, markdown, Github, Git]
+  - [Blog, markdown]
 
 toc: true
 classes: wide
