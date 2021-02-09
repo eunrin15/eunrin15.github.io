@@ -35,6 +35,7 @@ jQuery는 자바스크립트 프레임워크로서 간결한 문장의 표현으
 ### jQuery.ajax(url[,settings]) 함수
 ---
 jQuery Ajax기능을 위해서는 기본적으로 jQuery.ajax(url[,settings]) 함수를 이용<br>
+
 |설정|설명|default|type|
 |:----:|:----:|:----:|:----:|
 |type|http 요청 방식 설정(POST, GET, PUT.DELETE…)|GET|type string|

@@ -96,12 +96,14 @@ $.ajax({
 
 ### get함수 설정
 ---
+
 |설정|설명|default|type|
 |:----:|:----:|:----:|:----:|
 |url|request를 전달할 url명 |N/A|url String|
 |data|request에 담아 전달할 data명과 data값|N/A|String/Plain Object|
 |dataType|서버로부터 전달받을 데이터 타입|xml, json, script, or html|String|
 |success|요청에 성공할 경우 호출되는 함수|N/A|Function( PlainObject data, String textStatus, jqXHR jqXHR )|
+
 
 ### jQuery.get() 예제
 ---
