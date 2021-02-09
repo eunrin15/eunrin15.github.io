@@ -8,7 +8,7 @@ tags:
   - [Java, Javascript, Spring, ajax]
 
 toc: true
-toc_sticky: true
+classes: wide
  
 date: 2021-02-09
 last_modified_at: 2021-02-09
