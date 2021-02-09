@@ -8,7 +8,7 @@ tags:
   - [Blog, markdown, Github, Git]
 
 toc: true
-toc_sticky: true
+classes: wide
  
 date: 2021-02-08
 last_modified_at: 2021-02-08
