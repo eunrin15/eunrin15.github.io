@@ -45,7 +45,7 @@ Dependency Injection이란 모듈간의 의존성을 모듈의 외부(컨테이�
 
 ### Non-IoC/DI vs IoC/DI
 ---
-(/imgsrc/Spring_Non_IoC_DI_IoC_DI.JPG)
+![Non-IoC/DI vs IoC/DI](/imgsrc/Spring_Non_IoC_DI_IoC_DI.JPG)
 
 ### 기본 개념
 ---
@@ -147,4 +147,59 @@ Bean은 <alias/> element를 이용하여 추가적인 name을 가질 수 있다.
 <bean id="exampleBean" class="example.ExampleBean"/>
 
 <bean name="anotherExample" class="examples.ExampleBeanTwo"/>
+```
+
+### Bean 객체화
+---
+- 일반적으로 Bean 객체화는 Java 언어의 'new'연산자를 사용한다.<br>
+이 경우 별도의 설정은 필요없다.
+- 'new' 연산자가 아닌 static factory 메소드를 사용하여 Bean을 객체화할 수 있다.<br>
+이 경우 Constructor Injection 방식의 의존성 주입 설정을 따른다.
+
+```xml
+<bean id="exampleBean"
+    class="examples.ExampleBean"
+    factory-method="createInstance"/>
+```
+
+자신의 static factory 메소드가 아닌 별도의 Factory 클래스의 static 메소드를 사용하여 Bean을 객체화할 수 있다.<br>
+이 경우 역시 Constructor Injection 방식의 의존성 주입 설정을 따른다.
+
+```xml
+<!-- the factory bean, which contains a method called createInstance() -->
+<bean id="serviceLocator" class="com.foo.DefaultServiceLocator">
+    <!-- inject any dependencies required by this locator bean -->
+</bean>
+
+<!-- the bean to be created via the factory bean -->
+<bean id="exampleBean"
+    factory-bean="serviceLocator"
+    factory-method="createInstance"/>
+```
+
+```java
+ExampleBean exampleBean = new ExampleBean();
+ExampleBean exampleBean = ExampleBean.createInstance();
+ExampleBean exampleBean = DefaultServiceLocator.createInstance();
+```
+
+<bean/> element의 ‘lazy-init’ attribute를 사용하여 Bean 객체화 시기를 설정할 수 있다.
+
+- 일반적으로 Bean 객체화는 BeanFactory가 객체화되는 시점에 수행된다.<br>
+만약, ‘lazy-init’ attribute 값이 ‘true’인 경우, 설정된 Bean의 객체가 실제로 필요하다고 요청한 시점에 객체화가 수행된다.
+- ‘lazy-init’ attribute가 설정되어 있지 않으면 기본값을 사용한다.<br>
+Spring Framework의 기본값은 ‘false’이다.
+
+```xml
+<bean id="lazy" class="com.foo.ExpensiveToCreateBean" lazy-init="true"/>
+
+<bean name="not.lazy" class="com.foo.AnotherBean"/>
+```
+
+– <beans/> element의 ‘default-lazy-init’ attribute를 사용하여 XML 설정 파일 내의 모든 Bean 정의에 대한 lazyinit attribute의 기본값을 설정할 수 있다.
+
+```xml
+<beans default-lazy-init="true">
+    <!-- no beans will be pre-instantiated... -->
+</beans>
 ```
