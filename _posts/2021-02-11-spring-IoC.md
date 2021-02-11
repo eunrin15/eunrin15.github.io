@@ -45,7 +45,7 @@ Dependency Injection이란 모듈간의 의존성을 모듈의 외부(컨테이�
 
 ### Non-IoC/DI vs IoC/DI
 ---
-![Non-IoC/DI_vs_IoC/DI](/imgsrc/Spring_Non_IoC_DI_IoC_DI.JPG)
+(/imgsrc/Spring_Non_IoC_DI_IoC_DI.JPG)
 
 ### 기본 개념
 ---
@@ -81,7 +81,7 @@ BeanFactory factory = context;
 ### XML 설정
 ---
 XML 설정 파일은 <beans/> element를 root로 갖는다.<br>
-아래는 기본적인 XML 설정 파일의 모습니다.
+아래는 기본적인 XML 설정 파일의 모습이다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -119,4 +119,32 @@ XML 설정은 여러 개의 파일로 구성될 수 있으며, <import/> element
 ---
 Bean 정의는 Bean을 객체화하고 의존성을 주입하는 등의 관리를 위한 정보를 담고 있다.<br>
 XML 설정에서는 <bean/> element가 Bean 정의를 나타낸다.<br>
-Bean 정의는 아래와 같은 속성을 가진다.
+Bean 정의는 아래와 같은 속성을 가진다.<br>
+![Bean](/imgsrc/Spring_IoC_Bean.JPG)
+
+### Bean 이름
+---
+모든 Bean은 하나의 id를 가지며, 하나 이상의 name을 가질 수 있다.<br>
+id는 contatiner 안에서 고유해야 한다.
+
+```xml
+<bean id="exampleBean" class="example.ExampleBean"/>
+
+<bean name="anotherExample" class="examples.ExampleBeanTwo"/>
+```
+
+Bean은 <alias/> element를 이용하여 추가적인 name을 가질 수 있다.
+
+```xml
+<alias name="fromName" alias="toName"/>
+```
+
+### Bean Class
+---
+모든 Bean은 객체화를 위한 Java Class가 필요하다.(예외적으로 상속의 경우 class가 없어도 된다.)
+
+```xml
+<bean id="exampleBean" class="example.ExampleBean"/>
+
+<bean name="anotherExample" class="examples.ExampleBeanTwo"/>
+```
