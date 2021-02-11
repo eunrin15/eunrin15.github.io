@@ -8,7 +8,10 @@ tags:
   - [Java, Javascript, Spring, IoC Container]
 
 toc: true
-toc_sticky: true
+classes: wide
+
+sidebar:
+  nav: "docs"
  
 date: 2021-02-11
 last_modified_at: 2021-02-11
@@ -98,3 +101,22 @@ XML 설정 파일은 <beans/> element를 root로 갖는다.<br>
     <!-- more bean definitions go here -->
 </beans>
 ```
+
+XML 설정은 여러 개의 파일로 구성될 수 있으며, <import/> element를 사용하여 다른 XML 설정 파일을 import할 수 있다.
+
+```xml
+<beans>
+    <import resource="services.xml"/>
+    <import resource="resources/messageSource.xml"/>
+    <import resource="/resources/themeSource.xml"/>
+
+    <bean id="bean1" class="..."/>
+    <bean id="bean2" class="..."/>
+</beans>
+```
+
+### Bean
+---
+Bean 정의는 Bean을 객체화하고 의존성을 주입하는 등의 관리를 위한 정보를 담고 있다.<br>
+XML 설정에서는 <bean/> element가 Bean 정의를 나타낸다.<br>
+Bean 정의는 아래와 같은 속성을 가진다.
