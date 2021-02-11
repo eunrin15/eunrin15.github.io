@@ -5,14 +5,18 @@ excerpt: "Maven 정리"
 categories:
   - Spring
 tags:
-  - [Java, Javascript, Spring, maven]
+  - [Java, Javascript, Spring, Maven]
 
 toc: true
-toc_sticky: true
+classes: wide
+
+sidebar:
+  nav: "docs"
  
 date: 2021-02-09
 last_modified_at: 2021-02-09
 ---
+
 ### Maven이란?
 ---
 자바 프로젝트의 빌드(build)를 자동화 해주는 빌드 툴(build tool)이다.

@@ -5,10 +5,13 @@ excerpt: "MVC 정리"
 categories:
   - Spring
 tags:
-  - [Java, Javascript, Spring, maven]
+  - [Java, Javascript, Spring, MVC]
 
 toc: true
-toc-sticky: true
+classes: wide
+
+sidebar:
+  nav: "docs"
  
 date: 2021-02-09
 last_modified_at: 2021-02-09

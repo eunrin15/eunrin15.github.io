@@ -8,11 +8,15 @@ tags:
   - [Java, Javascript, Spring, ajax]
 
 toc: true
-toc_sticky: true
- 
+classes: wide
+
+sidebar:
+  nav: "docs"
+
 date: 2021-02-09
 last_modified_at: 2021-02-09
 ---
+
 ### ajax함수의 jqXHR(XMLHttpRquest)
 ---
 jQuery 1.5부터 jQuery의 모든 ajax함수는 XMLHttpRequest객체의 상위 집합을 리턴받을 수 있다.<br>

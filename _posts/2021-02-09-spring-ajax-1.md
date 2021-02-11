@@ -8,11 +8,15 @@ tags:
   - [Java, Javascript, Spring, ajax]
 
 toc: true
-toc_sticky: true
- 
+classes: wide
+
+sidebar:
+  nav: "docs"
+
 date: 2021-02-09
 last_modified_at: 2021-02-09
 ---
+
 jQuery는 브라우저 호환성을 제공하는 자바스크립트 라이브러리.<br>
 jQuery는 자바스크립트 프레임워크로서 간결한 문장의 표현으로 front-end(화면) 개발시 생산성 향상.<br>
 다양한 오픈소스 라이브러리들을 통해 java script로 ajax, json parser, css selector, dom seletor, event 등 다양한 ui 기능 등을 제공하고 front-end(화면)을 동적으로 제어가능

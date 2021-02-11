@@ -5,14 +5,18 @@ excerpt: "마크다운 작성법 세이브"
 categories:
   - Blog
 tags:
-  - [Blog, markdown, Github, Git]
+  - [Blog, markdown]
 
 toc: true
-toc_sticky: true
- 
+classes: wide
+
+sidebar:
+  nav: "docs"
+
 date: 2021-02-08
 last_modified_at: 2021-02-08
 ---
+
 [공통] 마크다운 markdown 작성법
 ======================
 
