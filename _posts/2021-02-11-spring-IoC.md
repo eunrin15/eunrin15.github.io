@@ -27,7 +27,7 @@ last_modified_at: 2021-02-11
 1. Dependency Injection
 2. Bean Lifecycle Management
 
-![IoC 개요](/imgsrc/Spring_IoC.jpg)<br>
+![IoC 개요](/imgsrc/Spring_IoC.JPG)<br>
 1. 업무 모듈은 IOC Container 서비스에 객체 생성을 요청한다.
 2. IoC Container는 표준 프레임워크 설정 정보에 객체 생성을 위한 종속성 정보 등과 같은 Ioc Container 설정 정보를 참조한다.
 3. IoC Container는 설정 정보에 따라 객체를 생성하여 업무 모듈에게 돌려준다.
@@ -196,7 +196,7 @@ Spring Framework의 기본값은 ‘false’이다.
 <bean name="not.lazy" class="com.foo.AnotherBean"/>
 ```
 
-– <beans/> element의 ‘default-lazy-init’ attribute를 사용하여 XML 설정 파일 내의 모든 Bean 정의에 대한 lazyinit attribute의 기본값을 설정할 수 있다.
+<beans/> element의 ‘default-lazy-init’ attribute를 사용하여 XML 설정 파일 내의 모든 Bean 정의에 대한 lazyinit attribute의 기본값을 설정할 수 있다.
 
 ```xml
 <beans default-lazy-init="true">
