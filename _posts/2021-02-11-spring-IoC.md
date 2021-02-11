@@ -203,3 +203,113 @@ Spring Framework의 기본값은 ‘false’이다.
     <!-- no beans will be pre-instantiated... -->
 </beans>
 ```
+
+### 의존성 주입
+---
+의존성 주입에는 Constructor Injection과 Setter Injection의 두가지 방식이 있다.<br>
+[ Constructor Injection ]<br>
+Constructor Injection은 argument를 갖는 생성자를 사용하여 의존성을 주입하는 방식이다.<br>
+<constructor-arg/> element를 사용한다.<br>
+생성자의 argument와 <constructor-arg/> element는 class가 같은 것끼리 매핑한다.
+
+```java
+package x.y;
+
+public class Foo {
+    public Foo(Bar bar, Baz baz) {
+        // ...
+    }
+}
+```
+
+```xml
+<beans>
+    <bean name="foo" class="x.y.Foo">
+        <constructor-arg>
+            <bean class="x.y.Bar"/>
+        </constructor-arg>
+    
+        <constructor-arg>
+            <bean class="x.y.Baz"/>
+        </constructor-arg>
+    </bean>
+</beans>
+```
+
+만약 생성자가 같은 class의 argument를 가졌거나 primitive type인 경우 argument와 <constructor-arg/> element간의 매핑이 불가능하다.<br>
+이 경우, Type을 지정하거나 순서를 지정할 수 있다.
+
+```java
+package examples;
+public class ExampleBean {
+    // No. of years to the calculate the Ultimate Answer
+    private int years;
+
+    // The Answer to Life, the Universe, and Everything
+    private String ultimateAnswer;
+
+    public ExampleBean(int years, String ultimateAnswer) {
+        this.years = years;
+        this.ultimateAnswer = ultimateAnswer;
+    }
+}
+```
+
+- type 지정
+
+```xml
+<bean id="exampleBean" class="examples.ExampleBean">
+    <constructor-arg type="int" value="7500000"/>
+    <constructor-arg type="java.lang.String" value="42"/>
+</bean>
+```
+
+- 순서 지정
+
+```xml
+<bean id="exampleBean" class="examples.ExampleBean">
+    <constructor-arg index="0" value="7500000"/>
+    <constructor-arg index="1" value="42"/>
+</bean>
+```
+
+[ Setter Injection ]<br>
+Setter Injection은 argument가 없는 기본 생성자를 사용하여 객체를 생성한 후, setter 메소드를 사용하여 의존성을 주입하는 방식으로, <property/> element를 사용한다.<br>
+Class에 attribute(또는 setter 메소드 명)과 <property/> element의 ‘name’ attribute를 사용하여 매핑한다.
+
+```java
+public class ExampleBean {
+    private AnotherBean beanOne;
+    private YetAnotherBean beanTwo;
+    private int i;
+
+    public void setBeanOne(AnotherBean beanOne) {
+        this.beanOne = beanOne;
+    }
+
+    public void setBeanTwo(YetAnotherBean beanTwo) {
+        this.beanTwo = beanTwo;
+    }
+
+    public void setIntegerProperty(int i) {
+        this.i = i;
+    }
+}
+```
+
+```xml
+<bean id="exampleBean" class="examples.ExampleBean">
+    <!-- setter injection using the nested <ref/> element -->
+    <property name="beanOne"><ref bean="anotherExampleBean"/></property>
+    
+    <!-- setter injection using the neater 'ref' attribute -->
+    <property name="beanTwo" ref="yetAnotherBean"/>
+    <property name="integerProperty" value="1"/>
+</bean>
+
+<bean id="anotherExampleBean" class="examples.AnotherBean"/>
+<bean id="yetAnotherBean" class="examples.YetAnotherBean"/>
+```
+
+매핑 규칙은 <property/> element의 ‘name’ attribute의 첫문자를 알파벳 대문자로 변경하고 그 앞에 ‘set’을 붙인 setter 메소드를 호출한다.
+
