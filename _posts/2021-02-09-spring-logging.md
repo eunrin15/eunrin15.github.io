@@ -1,6 +1,6 @@
 ---
 title:  "[Spring] Logging"
-excerpt: "MVC 정리"
+excerpt: "Logging 개념 정리"
 
 categories:
   - Spring
