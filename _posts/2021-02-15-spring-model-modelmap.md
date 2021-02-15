@@ -64,13 +64,6 @@ public String test(HttpServletRequest request, Model model, ModelMap modelMap){
 </body>
 ```
 
-- Web Page
-
-<body>
-    Model 저장한 값 : <input type="text" value="${modelVar }"/><br/>
-    ModelMap 저장한 값 : <input type="text" value="${modelMapVar }"/>
-</body>
-
 ### ModelAndView
 ---
 addObject를 통해 데이터를 저장한다.<br>
@@ -105,8 +98,3 @@ public ModelAndView test(HttpServletRequest request, ModelAndView mv){
     ModelAndView 저장한 값 : <input type="text" value="${modelAndViewVar }"/><br/>
 </body>
 ```
-
-- Web Page
-<body>
-    ModelAndView 저장한 값 : <input type="text" value="${modelAndViewVar }"/><br/>
-</body>
