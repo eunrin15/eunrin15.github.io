@@ -33,4 +33,4 @@ docs:
   - title: PROGRAMMING
     children:
       - title: "Java"
-        url:  /categories/#java/
+        url:  /categories/java/
