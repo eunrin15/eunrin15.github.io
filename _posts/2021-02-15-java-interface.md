@@ -128,8 +128,7 @@ public class ZooKeeper {
 }
 ```
 
-Animal을 상속한 Tiger와 Lion이 등장했다.<br>
-그리고 사육사 클래스인 ZooKeeper 클래스가 위와 같이 정의되었다.<br>
+Animal을 상속한 Tiger와 Lion이 등장했다. 그리고 사육사 클래스인 ZooKeeper 클래스가 위와 같이 정의되었다.<br>
 ZooKeeper 클래스는 호랑이가 왔을 때, 사자가 왔을 때 각각 다른 feed 메소드가 호출된다.<br>
 ※ ZooKeeper 클래스의 feed 메소드처럼 입력값의 자료형 타입이 다를 경우(위에서는 Tiger, Lion으로 서로 다르다) 메소드 명을 동일하게(여기서는 메소드명이 feed로 동일하다) 사용할 수 있다.<br>
 이런 것을 메소드 오버로딩(Method overloading)이라고 한다.<br>
@@ -154,8 +153,7 @@ public void feed(Leopard leopard) {
 ```
 
 이렇게 육식동물이 추가 될 때마다 feed 메소드를 추가해야 한다면 사육사(ZooKeeper)가 얼마나 귀찮겠는가?<br>
-이런 어려움을 극복하기 위해서 인터페이스를 사용해 보자.<br>
-다음과 같이 육식동물(Predator) 인터페이스를 작성 해 보자.<br>
+이런 어려움을 극복하기 위해서 인터페이스를 사용해 보자. 다음과 같이 육식동물(Predator) 인터페이스를 작성 해 보자.<br>
 
 [Predator.java]
 
@@ -225,10 +223,10 @@ public class Crocodile extends Animal implements Predator {
 
 눈치가 빠르다면 이제 왜 인터페이스가 필요한지 감을 잡았을 것이다.<br>
 보통 중요 클래스를 작성하는 입장이라면(여기서라면 ZooKeeper가 중요한 클래스가 될 것이다) 클래스의 구현체와 상관없이 인터페이스를 기준으로 중요 클래스를 작성해야만 한다.<br>
-구현체(Tiger, Lion, Crocodile,...)는 늘어가지만 인터페이스(Predator)는 하나이기 때문이다.
+구현체(Tiger, Lion, Crocodile,...)는 늘어가지만 인터페이스(Predator)는 하나이기 때문이다.<br>
 자, 그런데 위 ZooKeeper 클래스에 약간의 문제가 발생했다.<br>
 아래의 ZooKeeper클래스의 feed 메소드를 보면 호랑이가 오던지, 사자가 오던지 무조건 "feed apple" 이라는 문자열을 출력한다.<br>
-사자가 오면 "feed banana" 를 출력해야 하지 않겠는가!
+사자가 오면 "feed banana" 를 출력해야 하지 않겠는가
 
 ```java
 public void feed(Predator predator) {
@@ -236,8 +234,7 @@ public void feed(Predator predator) {
 }
 ```
 
-역시 인터페이스의 마법을 부려보자.<br>
-Predator 인터페이스에 다음과 같은 메소드를 추가 해 보자.<br>
+역시 인터페이스의 마법을 부려보자. Predator 인터페이스에 다음과 같은 메소드를 추가 해 보자.<br>
 
 [Predator.java]
 
@@ -247,10 +244,8 @@ public interface Predator {
 }
 ```
 
-getFood 라는 메소드를 추가했다.<br>
-그런데 좀 이상하다. 메소드에 몸통이 없다?<br>
-인터페이스의 메소드는 메소드의 이름과 입출력에 대한 정의만 있고 그 내용은 없다.<br>
-그 이유는 인터페이스는 규칙이기 때문이다.<br>
+getFood 라는 메소드를 추가했다. 그런데 좀 이상하다. 메소드에 몸통이 없다?<br>
+인터페이스의 메소드는 메소드의 이름과 입출력에 대한 정의만 있고 그 내용은 없다. 그 이유는 인터페이스는 규칙이기 때문이다.<br>
 위에서 설정한 getFood라는 메소드는 인터페이스를 implements한 클래스들이 구현해야만 하는 것이다.<br>
 인터페이스에 위처럼 메소드를 추가하면 Tiger, Lion등 Predator 인터페이스를 구현한 클래스들에서 컴파일 오류가 발생할 것이다.<br>
 오류를 해결하기 위해 Tiger, Lion에 getFood 메소드를 구현하도록 하자.<br>
@@ -276,9 +271,7 @@ public class Lion extends Animal implements Predator {
 ```
 
 getFood 메소드는 육식동물의 먹이인 "apple", "banana"등을 리턴하도록 작성했다.<br>
-이상없이 컴파일이 잘 될 것이다.<br>
-
-이제 ZooKeeper 클래스도 다음과 같이 변경이 가능하다.
+이상없이 컴파일이 잘 될 것이다. 이제 ZooKeeper 클래스도 다음과 같이 변경이 가능하다.
 
 ```java
 public class ZooKeeper {    
@@ -290,8 +283,7 @@ public class ZooKeeper {
 
 feed 메소드가 "feed apple" 을 출력하던 것에서 "feed "+predator.getFood()를 출력하도록 변경되었다.<br>
 predator.getFood()를 호출하면 Predator 인터페이스를 구현한 구현체(Tiger, Lion)의 getFood() 메소드가 호출된다.<br>
-그리고 main 메소드를 다시 실행시켜 보자.<br>
-원하던 데로 다음과 같은 결과값이 출력되는 것을 확인할 수 있을 것이다.
+그리고 main 메소드를 다시 실행시켜 보자. 원하던 데로 다음과 같은 결과값이 출력되는 것을 확인할 수 있을 것이다.
 
 ```
 feed apple
@@ -301,15 +293,7 @@ feed banana
 이 챕터에서 가장 중요한 부분은 왜 인터페이스가 필요한지에 대해서 이해하는 것이다.<br>
 육식 동물들의 종류만큼의 feed 메소드가 필요했던 ZooKeeper 클래스를 Predator 인터페이스를 이용하여 구현했더니 단 한개의 feed 메소드로 구현이 가능해졌다.<br>
 여기서 중요한 점은 메소드의 갯수가 줄어들었다는 점이 아니라 ZooKeeper클래스가 동물들의 종류에 의존적인 클래스에서 동물들의 종류와 상관없는 독립적인 클래스가 되었다는 점이다.<br>
-바로 이 점이 인터페이스의 핵심이다.<br>
-이번에는 좀 더 개념적으로 인터페이스를 생각해 보자.<br>
-아마도 여러분은 컴퓨터의 USB 포트에 대해서 알고 있을 것이다.<br>
-USB 포트에 연결할 수 있는 기기는 하드디스크, 메모리스틱, 디지털카메라 등등 무척 많다.<br>
-바로 이 USB포트가 물리적 세계의 인터페이스라고 할 수 있다.<br>
-USB포트의 규격만 알면 어떤 기기도 만들 수 있다.<br>
-또 컴퓨터는 USB 포트만 제공하고 어떤 기기가 만들어지는 지 신경쓸 필요가 없다.<br>
-바로 이 점이 인터페이스의 핵심이다.<br>
-위에서 만든 사육사(ZooKeeper)가 어떤 육식동물(Tiger, Lion...)이던지 상관하지 않고 먹이를 주는 것처럼
+바로 이 점이 인터페이스의 핵심이다.
 
 ### 참고
 ---
