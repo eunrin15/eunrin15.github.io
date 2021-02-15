@@ -40,6 +40,7 @@ POM(Project Object Model)을 설정하는 부분으로 프로젝트 내 빌드 �
 
 ### pom.xml 파일 분석
 ---
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -101,21 +102,33 @@ POM(Project Object Model)을 설정하는 부분으로 프로젝트 내 빌드 �
 
 </project>
 ```
+
 ### 구성 요소(프로젝트 정보)
 ---
-modelVersion : POM model의 버전<br>
-parent : 프로젝트의 계층 정보<br>
-groupId : 프로젝트를 생성하는 조직의 고유 아이디를 결정한다. 일반적으로 도메인 이름을 거꾸로 적는다.<br>
-artifactId : 프로젝트 빌드시 파일 대표이름 이다.<br>
-version : 프로젝트의 현재 버전, 프로젝트 개발 중일 때는 SNAPSHOT을 접미사로 사용.<br>
-packaging : 패키징 유형(jar, war, ear 등)<br>
-name : 프로젝트, 프로젝트 이름<br>
-description : 프로젝트에 대한 간략한 설명<br>
-url : 프로젝트에 대한 참고 Reference 사이트<br>
-properties : 버전관리시 용이 하다. ex) 하당 자바 버전을 선언 하고 dependencies에서 다음과 같이 활용 가능 하다.
-<version>${java.version}</version><br>
-dependencies : dependencies태그 안에는 프로젝트와 의존 관계에 있는 라이브러리들을 관리 한다.<br>
-build : 빌드에 사용할 플러그인 목록
+- modelVersion<br>
+POM model의 버전
+- parent<br>
+프로젝트의 계층 정보
+- groupId<br>
+프로젝트를 생성하는 조직의 고유 아이디를 결정한다. 일반적으로 도메인 이름을 거꾸로 적는다.
+- artifactId<br>프로젝트 빌드시 파일 대표이름 이다.
+- version<br>
+프로젝트의 현재 버전, 프로젝트 개발 중일 때는 SNAPSHOT을 접미사로 사용.
+- packaging<br>
+패키징 유형(jar, war, ear 등)
+- name<br>
+프로젝트, 프로젝트 이름
+- description<br>
+프로젝트에 대한 간략한 설명
+- url<br>
+프로젝트에 대한 참고 Reference 사이트
+- properties<br>
+버전관리시 용이 하다.<br>
+하당 자바 버전을 선언 하고 dependencies에서 다음과 같이 활용 가능 하다.
+- <version>${java.version}</version><br>
+dependencies : dependencies태그 안에는 프로젝트와 의존 관계에 있는 라이브러리들을 관리 한다.
+- build<br>
+빌드에 사용할 플러그인 목록
 
 ### 구성 요소(의존성 라이브러리 정보)
 ---
