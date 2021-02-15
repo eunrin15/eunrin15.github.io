@@ -184,7 +184,7 @@ HashMap<String, Object> map2= new HashMap<>();
 
 이렇게 선언도 가능하다.<br>
 interface의 개념이 따로 필요한 부분이다 아래 링크를 참고.<br>
-[https://eunrin15.github.io/java/java-interface/]
+[**Interface 개념 정리**](https://eunrin15.github.io/java/java-interface)
 
 ### 참고
 ---
