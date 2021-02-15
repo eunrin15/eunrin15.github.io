@@ -1,6 +1,6 @@
 ---
-title:  "[Spring]Maven"
-excerpt: "Maven 정리"
+title:  "[Spring] Maven"
+excerpt: "Maven 개념 정리"
 
 categories:
   - Spring

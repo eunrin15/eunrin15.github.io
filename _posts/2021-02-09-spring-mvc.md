@@ -1,5 +1,5 @@
 ---
-title:  "[Spring]MVC"
+title:  "[Spring] MVC"
 excerpt: "MVC 정리"
 
 categories:

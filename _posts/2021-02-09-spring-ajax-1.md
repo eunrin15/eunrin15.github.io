@@ -1,6 +1,6 @@
 ---
 title:  "[Spring] jQuery Ajax 기본"
-excerpt: "jQuery Ajax 개념 정리"
+excerpt: "jQuery Ajax 기본 개념 정리"
 
 categories:
   - Spring
