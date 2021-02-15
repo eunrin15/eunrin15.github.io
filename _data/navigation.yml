@@ -26,11 +26,11 @@ docs:
   - title: FRONT-END
     children:
       - title: "CSS"
-        url: /categories/#CSS/
+        url: /categories/#css/
       - title: "HTML"
-        url: /categories/#HTML/
+        url: /categories/#html/
 
   - title: PROGRAMMING
     children:
       - title: "Java"
-        url:  /categories/#Java/
+        url:  /categories/#java/
