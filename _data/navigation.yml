@@ -21,16 +21,16 @@ docs:
   - title: BACK-END
     children:
       - title: "Spring"
-        url:  /categories/#spring/
+        url:  /categories/#spring
 
   - title: FRONT-END
     children:
       - title: "CSS"
-        url: /categories/#css/
+        url: /categories/#css
       - title: "HTML"
-        url: /categories/#html/
+        url: /categories/#html
 
   - title: PROGRAMMING
     children:
       - title: "Java"
-        url:  /categories/java/
+        url:  /categories/#java
