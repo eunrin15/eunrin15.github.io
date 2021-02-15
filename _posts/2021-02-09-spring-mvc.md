@@ -105,7 +105,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd>
 
 ### HandlerMapping
 ---
-1. RequestMappingHandlerMapping<br>(DefaultAnnotationHandlerMapping는 deprecated)
+RequestMappingHandlerMapping(DefaultAnnotationHandlerMapping는 deprecated)
 - @MVC 개발을 위한 HandlerMapping. 표준프레임워크 3.0(Spring 3.2.9)에서 사용가능.
 - 기존 DefaultAnnotationHandlerMapping이 deprecated되면서 대체됨.
 - @RequestMapping에 지정된 url과 해당 Controller의 메소드 매핑
@@ -127,6 +127,223 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd>
 </beans>
 ```
 
-2. SimpleUrlAnnotationHandlerMapping<br>(표준프레임워크3.0부터deprecated됨 mvc 태그로 변경)
+SimpleUrlAnnotationHandlerMapping(표준프레임워크3.0부터deprecated됨 mvc 태그로 변경)
 - DefaultAnnotationHandlerMapping은 특정 url에 대해 interceptor를 적용할수 없음. -> 확장 HandlerMapping
-- DefaultAnnotationHandlerMapping과 함께 사용. (order 프로퍼티를 SimpleUrlAnnotationHandlerMapping에 준다.)
+- DefaultAnnotationHandlerMapping과 함께 사용. (order 프로퍼티를 SimpleUrlAnnotationHandlerMapping에 준다.)<br>
+![Spring_MVC_SimpleAnnotation](/imgsrc/Spring_MVC_SimpleAnnotation.JPG)
+
+### @controller 관련 Annotation
+---
+1. @Controller<br>
+해당 클래스가 Controller임을 나타내기 위한 어노테이션
+2. @RequsetMapping<br>
+요청에 대해 어떤 Controller, 어떤 메소드가 처리할지를 맵핑하기 위한 어노테이션
+3. @RequestParam<br>
+Controller 메소드의 파라미터와 웹 요청 파라미터와 맵핑하기 위한 어노테이션
+4. @ModelAttribute<br>
+Controller 메소드의 파라미터와 리턴값을 Model 객체와 바인딩하기 위한 어노테이션
+5. SessionAttributes<br>
+Model 객체를 세션에 저장하고 사용하기 위한 어노테이션
+6. @CommandMap<br>
+Controller 메소드의 파라미터를 Map형태로 받을 때 웹 요청 파라미터와 맵핑하기 위한 어노테이션
+
+### @Controller
+---
+@MVC에서 Controller를 만들기 위해서는 작성한 클래스에 @Controller를 붙여주면 된다. 특정 클래스를 구현하거나 상속할 필요가 없다.
+
+```java
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class HelloController {
+...
+}
+```
+
+### @RequestMapping
+---
+요청에 대해 어떤 Controller, 어떤 메소드가 처리할지를 매핑하기 위한 어노테이션이다.<br>
+[ 관련속성 ]
+
+|이름|타입|맵핑 조건|설명|
+|:----:|:----:|:----:|:----:|
+|value|String[]|URL 값|@RequestMapping(value=”/hello.do”)<br>@RequestMapping(value={”/hello.do”, ”/world.do” })<br>@RequestMapping(”/hello.do”)<br>Ant-Style 패턴매칭 이용 : ”/myPath/*.do”|
+|method|Request Method[]|HTTP Request 메소드값|@RequestMapping(method = RequestMethod.POST)<br>사용 가능한 메소드 : GET, POST, HEAD, OPTIONS, PUT, DELETE, TRACE|
+|params|String[]|HTTP Request 파라미터| params=“myParam=myValue” : HTTP Request URL중에 myParam이라는 파라미터가 있어야 하고 값은 myValue이어야 맵핑<br>params=“myParam” : 파라미터 이름만으로 조건을 부여<br>"!myParam" : myParam이라는 파라미터가 없는 요청 만을 맵핑<br>@RequestMapping(params={“myParam1=myValue”, “myParam2”, ”!myParam3”})와 같이 조건을 주었다면, HTTP Request에는 파라미터 myParam1이 myValue값을 가지고 있고, myParam2 파라미터가 있어야 하고, myParam3라는 파라미터는 없어야함
+
+### @RequestMapping 설정
+---
+@RequestMapping은 클래스 단위(type level)나 메소드 단위(method level)로 설정할 수 있다.
+
+- type level<br>
+/hello.do 요청이 오면 HelloController의 hello 메소드가 수행된다.<br>
+type level에서 URL을 정의하고 Controller에 메소드가 하나만 있어도 요청 처리를 담당할 메소드 위에 @RequestMapping 표기를 해야 제대로 맵핑이 된다.<br>
+
+```java
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/hello.do")
+public class HelloController {
+
+  @RequestMapping
+  public String hello(){
+  ...
+  }
+}
+```
+
+- method level<br>
+/hello.do 요청이 오면 hello 메소드,<br>
+/helloForm.do 요청은 GET 방식이면 helloGet 메소드, POST 방식이면 helloPost 메소드가 수행된다.<br>
+
+```java
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+public class HelloController {
+
+  @RequestMapping(value="/hello.do")
+  public String hello(){
+  ...
+  }
+
+  @RequestMapping(value="/helloForm.do", method = RequestMethod.GET)
+  public String helloGet(){
+  ...
+  }
+
+  @RequestMapping(value="/helloForm.do", method = RequestMethod.POST)
+  public String helloPost(){
+  ...
+  }
+}
+```
+
+- type + method level<br>
+type level, method level 둘 다 설정할 수도 있는데,<br>
+이 경우엔 type level에 설정한 @RequestMapping의 value(URL)를 method level에서 재정의 할수 없다.<br>
+/hello.do 요청시에 GET 방식이면 helloGet 메소드, POST 방식이면 helloPost 메소드가 수행된다. <br>
+
+```java
+@Controller
+@RequestMapping("/hello.do")
+public class HelloController {
+  @RequestMapping(method = RequestMethod.GET)
+  public String helloGet(){
+  ...
+  }
+
+  @RequestMapping(method = RequestMethod.POST)
+  public String helloPost(){
+  ...
+  }
+}
+```
+
+### @RequestParam
+---
+@RequestParam은 Controller 메소드의 파라미터와 웹요청 파라미터와 맵핑하기 위한 어노테이션이다.<br>
+[ 관련 속성 ]
+
+|이름|타입|설명|
+|:----:|:----:|:----:|
+|value|String|파라미터 이름|
+|required|boolean|해당 파라미터가 반드시 필수 인지 여부.<br>기본값은 true이다.|
+
+해당 파라미터가 Request 객체 안에 없을때 그냥 null값을 바인드 하고 싶다면, 아래 예제의 pageNo 파라미터 처럼 required=false로 명시해야 한다.<br>
+name 파라미터는 required가 true이므로, 만일 name 파라미터가 null이면 org.springframework.web.bind.MissingServletRequestParameterException이 발생한다.
+
+```java
+@Controller
+public class HelloController {
+
+  @RequestMapping("/hello.do")
+  public String hello(@RequestParam("name") String name,
+                  @RequestParam(value="pageNo", required=false) String pageNo){
+  ...
+  }
+}
+```
+
+### @ModelAttribute
+---
+@ModelAttribute은 Controller에서 2가지 방법으로 사용된다.
+1. Model 속성(attribute)과 메소드 파라미터의 바인딩.
+2. 입력 폼에 필요한 참조 데이터(reference data) 작성. - SimpleFormContrller의 referenceData 메소드와 유사한 기능.
+
+[ 관련 속성 ]
+
+|이름|타입|설명|
+|:----:|:----:|:----:|
+|value|String|바인드하려는 Model 속성 이름.|
+
+### @SessionAttributes
+---
+@SessionAttributes는 model attribute를 session에 저장, 유지할 때 사용하는 어노테이션이다.<br>
+@SessionAttributes는 클래스 레벨(type level)에서 선언할 수 있다.<br>
+[ 관련 속성 ]
+
+|이름|타입|설명|
+|:----:|:----:|:----:|
+|value|String[]|session에 저장하려는 model attribute의 이름|
+|required|Class[]|session에 저장하려는 model attribute의 타입|
+
+### @CommandMap(실행환경 3.2부터deprecated됨 @RequestParam으로 대체)
+---
+실행환경 3.0부터 추가되었으며 Controller에서 Map형태로 웹요청 값을 받았을 때 다른 Map형태의 argument와 구분해주기 위한 어노테이션이다.<br>
+@CommandMap은 파라미터 레벨(type level)에서 선언할 수 있다.<br>
+사용 방법은 다음과 같다.
+
+```java
+@RequestMapping("/test.do")
+public void test(@CommandMap Map<String, String> commandMap, HttpServletRequest request){
+  //생략
+}
+```
+CommandMap을 이용하기 위해서는 반드시 EgovRequestMappingHandlerAdapter와 함께 AnnotationCommandMapArgumentResolver를 등록해주어야 한다.
+
+```xml
+<bean class="egovframework.rte.ptl.mvc.bind.annotation.EgovRequestMappingHandlerAdapter">
+  <property name="customArgumentResolvers">
+    <list>
+    <bean class="egovframework.rte.ptl.mvc.bind.AnnotationCommandMapArgumentResolver" />
+    </list>
+  </property>
+</bean>
+```
+
+### @Controller 메소드 시그니쳐
+---
+기존의 계층형 Controller(SimpleFormController, MultiAction..)에 비해 유연한 메소드 파라미터, 리턴값을 갖는다.
+
+### @Controller 메소드 시그니쳐 - 메소드 파라미터
+- Servlet API - ServletRequest, HttpServletRequest, HttpServletResponse, HttpSession 같은 요청,응답,세션관련 Servlet API.
+- org.springframework.web.context.request.WebRequest, org.springframework.web.context.request.NativeWebRequest
+- java.util.Locale
+- java.io.InputStream / java.io.Reader
+- java.io.OutputStream / java.io.Writer
+- @RequestParam - HTTP Request의 파라미터와 메소드의 argument를 바인딩하기 위해 사용하는 어노테이션.
+- java.util.Map / org.springframework.ui.Model / org.springframework.ui.ModelMap > 뷰에 전달할 모델데이터.
+- Command/form 객체 - HTTP Request로 전달된 parameter를 바인딩한 커맨드 객체, @ModelAttribute을 사용하면 alias를 줄수 있다.
+- org.springframework.validation.Errors / org.springframework.validation.BindingResult > 유효성 검사 후 결과 데이터를 저장한 객체.
+- org.springframework.web.bind.support.SessionStatus > 세션폼 처리시에 해당 세션을 제거하기 위해 사용된다.
+
+### @Controller 메소드 시그니쳐 - 메소드 리턴 타입
+---
+- ModelAndView<br>
+커맨드 객체, @ModelAttribute 적용된 메소드의 리턴 데이터가 담긴 Model 객체와 View 정보가 담겨 있다.
+- Model(또는 ModelMap)<br>
+커맨드 객체, @ModelAttribute 적용된 메소드의 리턴 데이터가 Model 객체에 담겨 있다.<br>
+View 이름은 RequestToViewNameTranslator가 URL을 이용하여 결정한다.
+- Map<br>
+커맨드 객체, @ModelAttribute 적용된 메소드의 리턴 데이터가 Map 객체에 담겨 있으며, View 이름은 역시 RequestToViewNameTranslator가 결정한다.
+- String<br>
+리턴하는 String 값이 곧 View 이름이 된다. 커맨드 객체, @ModelAttribute 적용된 메소드의 리턴 데이터가Model(또는 ModelMap)에 담겨 있다.<br>
+리턴할 Model(또는 ModelMap)객체가 해당 메소드의 argument에 선언되어 있어야 한다.
+- void<br>
+메소드가 ServletResponse / HttpServletResponse등을 사용하여 직접 응답을 처리하는 경우이다.<br>
+View 이름은 RequestToViewNameTranslator가 결정한다.
