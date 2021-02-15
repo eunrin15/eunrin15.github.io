@@ -1,11 +1,11 @@
 ---
-title:  "마크다운 markdown 작성법"
-excerpt: "마크다운 작성법 세이브"
+title:  "[markdown] markdown 작성법"
+excerpt: "markdown 작성법 정리"
 
 categories:
-  - Blog
+  - markdown
 tags:
-  - [Blog, markdown]
+  - [markdown]
 
 toc: true
 classes: wide
@@ -381,23 +381,12 @@ View 영역의 항목을 그대로 붙여넣거나 HTML 내보내기 등으로 �
 
 # 4. 정리
 마크다운은 기본문법만 알고있다면 일반 텍스트편집기에서도 손쉽게 작성이 가능한 마크업언어다. 현재 다양한 도구와 플랫폼에서 지원하고 있기 때문에 더욱 손쉽게 스타일적용된 문서를 작성할 수 있어 점점 널리 사용되고 있다.   
-
-> 마크다운을 이해하고 사용하면서 쉽고 빠르게 스타일문서를 작성해보세요.
-
-저는 Dropbox 프로를 구매해서 집-랩탑-스마트폰이 각각 연동을 시켜서 사용하고 있습니다. 드랍박스에 저장된 마크다운 문서는 Dropbox 웹서비스 상에서 제공하기 때문에 웹상에서 바로 열람할 수도 있어 링크를 걸어서 다른 사람과 공유하는 형식으로 사용하고 있다.
-* 링크 예: [Markdown 설명](https://www.dropbox.com/s/mzp9tq4qtfjdlif/20141021_markdown_use_tip.md?dl=0)
-
 ***** 
 
-# P.S.
-최근에는 [Notion](https://www.notion.so/product) 을 조금씩 사용중이다. Notion 에서 작성한 문서는 Atom(<https://atom.io/>), Visual Studio Code(<https://code.visualstudio.com/>), Notepad++(<https://notepad-plus-plus.org/>)텍스트 편집기에 복붙(복사하고 붙여넣기)하면 마크다운문법으로 작성된 문장이 기입되고 이지윅 에디터를 제공하는 웹에디터에 붙여넣기 하면 거의 완벽한 형태로 복사된다. 그래서 애용중이다.
 
-## ○ 참고문서
-* [78 Tools for writing and previewing Markdown](http://mashable.com/2013/06/24/markdown-tools/)
-* [John gruber 마크다운 번역](http://nolboo.github.io/blog/2013/09/07/john-gruber-markdown/)
-* [깃허브 취향의 마크다운 번역](http://nolboo.github.io/blog/2014/03/25/github-flavored-markdown/)
-* [허니몬의 마크다운 작성법](http://www.slideshare.net/ihoneymon/ss-40575068)
-* Notion.so(<https://www.notion.so/product>)
-* Atom(<https://atom.io/>)
-* Visual Studio Code(<https://code.visualstudio.com/>)
-* Notepad++(<https://notepad-plus-plus.org/>)
+## 참고 문서
+---
+
+```
+https://gist.github.com/ihoneymon/652be052a0727ad59601
+```
