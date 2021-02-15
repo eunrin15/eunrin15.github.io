@@ -209,8 +209,8 @@ Spring Framework의 기본값은 ‘false’이다.
 의존성 주입에는 Constructor Injection과 Setter Injection의 두가지 방식이 있다.<br>
 [ Constructor Injection ]<br>
 Constructor Injection은 argument를 갖는 생성자를 사용하여 의존성을 주입하는 방식이다.<br>
-<constructor-arg/> element를 사용한다.
-생성자의 argument와 <constructor-arg/> element는 class가 같은 것끼리 매핑한다.
+constructor-arg element를 사용한다.
+생성자의 argument와 constructor-arg element는 class가 같은 것끼리 매핑한다.
 
 ```java
 package x.y;
@@ -236,7 +236,7 @@ public class Foo {
 </beans>
 ```
 
-만약 생성자가 같은 class의 argument를 가졌거나 primitive type인 경우 argument와 <constructor-arg/> element간의 매핑이 불가능하다.<br>
+만약 생성자가 같은 class의 argument를 가졌거나 primitive type인 경우 argument와 constructor-arg element간의 매핑이 불가능하다.<br>
 이 경우, Type을 지정하거나 순서를 지정할 수 있다.
 
 ```java
@@ -274,8 +274,8 @@ public class ExampleBean {
 ```
 
 [ Setter Injection ]<br>
-Setter Injection은 argument가 없는 기본 생성자를 사용하여 객체를 생성한 후, setter 메소드를 사용하여 의존성을 주입하는 방식으로, <property/> element를 사용한다.<br>
-Class에 attribute(또는 setter 메소드 명)과 <property/> element의 ‘name’ attribute를 사용하여 매핑한다.
+Setter Injection은 argument가 없는 기본 생성자를 사용하여 객체를 생성한 후, setter 메소드를 사용하여 의존성을 주입하는 방식으로, property element를 사용한다.<br>
+Class에 attribute(또는 setter 메소드 명)과 property element의 ‘name’ attribute를 사용하여 매핑한다.
 
 ```java
 public class ExampleBean {
@@ -311,5 +311,5 @@ public class ExampleBean {
 <bean id="yetAnotherBean" class="examples.YetAnotherBean"/>
 ```
 
-매핑 규칙은 <property/> element의 ‘name’ attribute의 첫문자를 알파벳 대문자로 변경하고 그 앞에 ‘set’을 붙인 setter 메소드를 호출한다.
+매핑 규칙은 property element의 ‘name’ attribute의 첫문자를 알파벳 대문자로 변경하고 그 앞에 ‘set’을 붙인 setter 메소드를 호출한다.
 
