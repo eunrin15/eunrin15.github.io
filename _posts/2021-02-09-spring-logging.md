@@ -56,6 +56,7 @@ last_modified_at: 2021-02-15
 ---
 log4j에서는 기본적으로 debug, info, warn, error, fatal의 다섯 가지 로그레벨이 있음<br>
 (ERROR > WARN > INFO > DEBUG > TRACE)
+
 |로그 레벨|설명|
 |:----:|:----:|
 |Error|요청을 처리하는중 문제가 발생한 상태를 나타냄|
@@ -67,6 +68,7 @@ log4j에서는 기본적으로 debug, info, warn, error, fatal의 다섯 가지 
 ### Appender
 ---
 log4j 는 콘솔, 파일, DB, socket, message, mail 등 다양한 로그 출력 대상과 방법을 지원하는데, 이에 대해 log4j 의 Appender 로 정의할 수 있다.
+
 |Appender|설명|
 |:----:|:----:|
 |ConsoleAppender|- 콘솔화면으로 출력하기 위한 appender임<br>org.apache.log4j.ConsoleAppender : Console 화면으로 출력하기 위한 Appender|
