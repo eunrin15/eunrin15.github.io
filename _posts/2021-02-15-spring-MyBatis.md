@@ -61,7 +61,8 @@ ResultHandler 인터페이스<br>
 
 [MyBatis 설정 2] MyBatis Configuration XML 파일 작성<br>
 - MyBatis 동작에 필요한 옵션을 설정
-- <mapper>: SQL Mapper XML 파일의 위치
+- mapper<br>
+SQL Mapper XML 파일의 위치
 
 [스프링연동 설정] SqlSessionFactoryBean 정의<br>
 - Spring와 MyBatis 연동을 위한 설정
@@ -78,6 +79,7 @@ DAO 클래스 작성<br>
 ### [MyBatis 설정 1] SQL Mapper XML 파일 작성
 ---
 실행할 SQL문과 Parameter Object와 Result Object 정보 등을 설정
+
 ![Spring_MtBatis_SQL_Mapper](/imgsrc/Spring_MtBatis_SQL_Mapper.JPG)
 
 ### [MyBatis 설정 1] SQL Mapper XML 파일 작성 - Dynamic SQL
@@ -128,6 +130,7 @@ SQL문의 다양한 위치에서 사용 가능하고, 선언된 if 조건에 따
 - trim (where, set)<br>
 AND, OR, ‘,’와 같이 반복되는 문자를 자동적으로 trim(제거)<br>
 아래 예제의 <trim prefix=“WHERE” prefixOverrides=“AND|OR”>은 <where>와 동일하게 동작<br>
+
 ![Spring_MyBatis_trim](/imgsrc/Spring_MyBatis_trim.JPG)
 
 - foreach<br>
@@ -205,6 +208,7 @@ SQL Mapper XML 파일을 일괄 지정할 수 있다. 단, Configuration 파일�
 ###  MyBatis를 활용한 자바클래스 작성
 ---
 EgovAbstractMapper 클래스를 상속받아 DAO 클래스를 작성<br>
+
 ![Spring_MyBatis_EgovAbstractMapper](/imgsrc/Spring_MyBatis_EgovAbstractMapper.JPG)<br>
 
 DAO 클래스 대신 Interface 작성 (Mapper Interface 방식)<br>
