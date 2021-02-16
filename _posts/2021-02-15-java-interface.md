@@ -1,5 +1,5 @@
 ---
-title:  "[Java] Interface"
+title:  "[Java] 인터페이스(Interface)"
 excerpt: "Java Interface 개념 정리"
 
 categories:

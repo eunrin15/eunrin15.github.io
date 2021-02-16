@@ -1,5 +1,5 @@
 ---
-title:  "[Java] Generic"
+title:  "[Java] 제네릭(Generic)"
 excerpt: "Java Generic 개념 정리"
 
 categories:
