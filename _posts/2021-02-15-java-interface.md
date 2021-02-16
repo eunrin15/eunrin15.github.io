@@ -17,288 +17,213 @@ date: 2021-02-15
 last_modified_at: 2021-02-15
 ---
 
-### interface란?
+### 인터페이스(interface)란?
+---
+**인터페이스(interface)란 다른 클래스를 작성할 때 기본이 되는 틀을 제공하면서, 다른 클래스 사이의 중간 매개 역할까지 담당하는 일종의 추상 클래스를 의미합니다**.<br>
+자바에서 추상 클래스는 추상 메소드뿐만 아니라 생성자, 필드, 일반 메소드도 포함할 수 있습니다.<br>
+하지만 **인터페이스(interface)는 오로지 추상 메소드와 상수만을 포함할 수 있습니다**.<br>
+또한, **자바에서는 인터페이스라는 것을 통해 다중 상속을 지원하고 있습니다**.
+
+### 인터페이스 선언
+---
+인터페이스를 선언할 때에는 접근 제어자와 함께 **interface 키워드를 사용**하면 됩니다.
+
+```java
+접근제어자 interface 인터페이스이름 {
+
+    public static final 타입 상수이름 = 값;
+    ...
+
+    public abstract 메소드이름(매개변수목록);
+    ...
+}
+```
+
+단, 클래스와는 달리 인터페이스의 모든 필드는 **public static final**이어야 하며, 모든 메소드는 **public abstract**이어야 합니다.
+이 부분은 모든 인터페이스에 공통으로 적용되는 부분이므로 이 제어자는 생략할 수 있습니다.
+이렇게 **생략된 제어자는 컴파일 시 자바 컴파일러가 자동으로 추가**해 줍니다.
+
+### 인터페이스 구현
+---
+인터페이스는 추상 클래스와 마찬가지로 **자신이 직접 인스턴스를 생성할 수는 없습니다**.
+따라서 인터페이스가 포함하고 있는 추상 메소드를 구현해 줄 클래스를 작성해야만 합니다.
+
+```java
+class 클래스이름 implements 인터페이스이름 { ... }
+```
+
+만약 모든 추상 메소드를 구현하지 않는다면, abstract 키워드를 사용하여 추상 클래스로 선언해야 합니다.
+
+```java
+interface Animal { public abstract void cry(); }
+
+class Cat implements Animal {
+    public void cry() {
+        System.out.println("냐옹냐옹!");
+    }
+}
+
+class Dog implements Animal {
+    public void cry() {
+        System.out.println("멍멍!");
+    }
+}
+
+public class Polymorphism03 {
+    public static void main(String[] args) {
+        Cat c = new Cat();
+        Dog d = new Dog();
+
+        c.cry();
+        d.cry();
+    }
+}
+```
+
+```
+[실행 결과]
+냐옹냐옹!
+멍멍!
+```
+
+### 상속과 구현을 동시에
+---
+자바에서는 다음과 같이 상속과 구현을 동시에 할 수 있습니다.
+
+```java
+class 클래스이름 extend 상위클래스이름 implements 인터페이스이름 { ... }
+```
+
+**인터페이스는 인터페이스로부터만 상속을 받을 수 있으며, 여러 인터페이스를 상속받을 수 있습니다.**
+
+
+### 인터페이스를 사용한 다중 상속의 예제
 ---
 
 ```java
-public interface BasicForm {
-    void setName(final String name, final int age);
-    String getName();
-}
+interface Animal { public abstract void cry(); }
+interface Pet { public abstract void play(); }
 
-```
-
-인터페이스는 "interface 인터페이스이름 { 메소드방식선언 }"으로 이루어져 있습니다.<br>
-그리고 인터페이스는 "public" 선언을 원칙으로 합니다.<br>
-이렇게 선언한 인터페이스를 구현(인터페이스에서는 상속이 아닌 구현이라고 합니다.)할 때는"implements"를 사용합니다.<br>
-그런데 이 인터페이스에 들어있는 메소드들은 꼭!!! 구현할때 오버라이드를 해줘야 합니다.<br>
-
-[간단한 interface 예제]
-
-```java
-interface Human {
-    void setName(final String name);
-    String getName();
-}
- 
-class Man implements Human {
-    private String name;
-    private int age;
-    Man(final int age) {
-        this.name = "";
-        this.age = age;
+class Cat implements Animal, Pet {
+    public void cry() {
+        System.out.println("냐옹냐옹!");
     }
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-    @Override
-    public String getName() {
-        return name;
+
+    public void play() {
+        System.out.println("쥐 잡기 놀이하자~!");
     }
 }
- 
-public class AbstractTest {
+
+class Dog implements Animal, Pet {
+    public void cry() {
+        System.out.println("멍멍!");
+    }
+
+    public void play() {
+        System.out.println("산책가자~!");
+    }
+}
+
+public class Polymorphism04 {
     public static void main(String[] args) {
-        Man man = new Man(5);
-        man.setName("홍길동");
-        System.out.println("이름 : " + man.getName());
+        Cat c = new Cat();
+        Dog d = new Dog();
+
+        c.cry();
+        c.play();
+        d.cry();
+        d.play();
     }
 }
 ```
 
-### 인터페이스를 사용하는 이유?
+```
+[실행 결과]
+냐옹냐옹!
+나비야~ 쥐 잡기 놀이하자~!
+멍멍!
+바둑아~ 산책가자~!
+```
+ 
+Cat 클래스와 Dog 클래스는 각각 Animal과 Pet이라는 두 개의 인터페이스를 동시에 구현하고 있습니다.
+
+### 클래스를 이용한 다중 상속의 문제점
 ---
-다음의 경우를 생각 해 보자.
-
-1. 난 동물원의 사육사이다.
-2. 육식동물이 들어오면 난 먹이를 던져준다.
-3. 호랑이가 오면 사과를 던져준다.
-4. 사자가 오면 바나나를 던져준다.
-
-이런 케이스를 코드로 담아보자.
-
-[Animal.java]
+클래스를 이용하여 다중 상속을 하면 **메소드 출처의 모호성 등의 문제가 발생**할 수 있습니다.
 
 ```java
-public class Animal {
-    String name;
-
-    public void setName(String name) {
-        this.name = name;
+class Animal { 
+    public void cry() {
+        System.out.println("짖기!");
     }
 }
-```
 
-[Tiger.java]
-
-```java
-public class Tiger extends Animal {
-
-}
-```
-
-[Lion.java]
-
-```java
-public class Lion extends Animal {
-
-}
-```
-
-[ZooKeeper.java]
-
-```java
-public class ZooKeeper {
-    public void feed(Tiger tiger) {
-        System.out.println("feed apple");
+class Cat extends Animal {
+    public void cry() {
+        System.out.println("냐옹냐옹!");
     }
+}
 
-    public void feed(Lion lion) {
-        System.out.println("feed banana");
+class Dog extends Animal {
+    public void cry() {
+        System.out.println("멍멍!");
     }
+}
 
+1. class MyPet extends Cat, Dog {}
+
+public class Polymorphism {
     public static void main(String[] args) {
-        ZooKeeper zooKeeper = new ZooKeeper();
-        Tiger tiger = new Tiger();
-        Lion lion = new Lion();
-        zooKeeper.feed(tiger);
-        zooKeeper.feed(lion);
+        MyPet p = new MyPet();
+2.      p.cry();
+    }
+}
+```
+ 
+위의 예제에서 Cat 클래스와 Dog 클래스는 각각 Animal 클래스를 상속받아 cry() 메소드를 오버라이딩하고 있습니다.<br>
+여기까지는 문제가 없지만, 1번 라인에서 MyPet 클래스가 Cat 클래스와 Dog 클래스를 동시에 상속받게 되면 문제가 발생합니다.<br>
+2번 라인에서 MyPet 인스턴스인 p가 cry() 메소드를 호출하면, 이 메소드가 Cat 클래스에서 상속받은 cry() 메소드인지 Dog 클래스에서 상속받은 cry() 메소드인지를 구분할 수 없는 모호성을 지니게 됩니다.<br>
+이와 같은 이유로 자바에서는 클래스를 이용한 다중 상속을 지원하지 않는 것입니다.<br>
+하지만 다음 예제처럼 인터페이스를 이용하여 다중 상속을 하게되면, 위와 같은 메소드 호출의 모호성을 방지할 수 있습니다.
+
+```java
+interface Animal { public abstract void cry(); }
+interface Cat extends Animal { public abstract void cry(); }
+interface Dog extends Animal { public abstract void cry(); }
+
+class MyPet implements Cat, Dog {
+    public void cry() {
+        System.out.println("멍멍! 냐옹냐옹!");
+    }
+}
+
+public class Polymorphism05 {
+    public static void main(String[] args) {
+        MyPet p = new MyPet();
+        p.cry();
     }
 }
 ```
 
-Animal을 상속한 Tiger와 Lion이 등장했다. 그리고 사육사 클래스인 ZooKeeper 클래스가 위와 같이 정의되었다.<br>
-ZooKeeper 클래스는 호랑이가 왔을 때, 사자가 왔을 때 각각 다른 feed 메소드가 호출된다.<br>
-※ ZooKeeper 클래스의 feed 메소드처럼 입력값의 자료형 타입이 다를 경우(위에서는 Tiger, Lion으로 서로 다르다) 메소드 명을 동일하게(여기서는 메소드명이 feed로 동일하다) 사용할 수 있다.<br>
-이런 것을 메소드 오버로딩(Method overloading)이라고 한다.<br>
-
-ZooKeepr 클래스를 실행시키면 main메소드가 호출되어 다음과 같은 결과가 출력될 것이다.<br>
-
 ```
-feed apple
-feed banana
+[실행 결과]
+멍멍! 냐옹냐옹!
 ```
 
-동물원에 호랑이와 사자뿐이라면 ZooKeeper 클래스는 완벽하겠지만 악어, 표범등이 계속 추가된다면 ZooKeeper는 육식동물이 추가될 때마다 매번 다음과 같은 feed 메소드를 추가해야 한다.<br>
+위의 예제에서는 Cat 인터페이스와 Dog 인터페이스를 동시에 구현한 MyPet 클래스에서만 cry() 메소드를 정의하므로, 앞선 예제에서 발생한 메소드 호출의 모호성이 없습니다.
 
-```java
-public void feed(Crocodile crocodile) {
-    System.out.println("feed strawberry");
-}
+### 인터페이스의 장점
+---
+인터페이스를 사용하면 다중 상속이 가능할 뿐만 아니라 다음과 같은 장점을 가질 수 있습니다.
 
-public void feed(Leopard leopard) {
-    System.out.println("feed orange");
-}
-```
+1. 대규모 프로젝트 개발 시 **일관되고 정형화된 개발을 위한 표준화가 가능**합니다.
+2. 클래스의 작성과 인터페이스의 구현을 동시에 진행할 수 있으므로, **개발 시간을 단축**할 수 있습니다.
+3. 클래스와 클래스 간의 관계를 인터페이스로 연결하면, **클래스마다 독립적인 프로그래밍이 가능**합니다.
 
-이렇게 육식동물이 추가 될 때마다 feed 메소드를 추가해야 한다면 사육사(ZooKeeper)가 얼마나 귀찮겠는가?<br>
-이런 어려움을 극복하기 위해서 인터페이스를 사용해 보자. 다음과 같이 육식동물(Predator) 인터페이스를 작성 해 보자.<br>
-
-[Predator.java]
-
-```java
-public interface Predator {
-
-}
-```
-
-위 코드와 같이 인터페이스는 class가 아닌 interface 라는 키워드를 이용하여 작성한다.<br>
-그리고 Tiger, Lion 은 작성한 인터페이스를 구현하도록 변경한다.<br>
-
-[Tiger.java]
-
-```java
-public class Tiger extends Animal implements Predator {
-
-}
-```
-
-[Lion.java]
-
-```java
-public class Lion extends Animal implements Predator {
-
-}
-```
-
-인터페이스 구현은 위와같이 implements 라는 키워드를 사용한다.<br>
-Tiger, Lion이 Predator 인터페이스를 구현하면 ZooKeeper 클래스의 feed 메소드를 다음과 같이 변경 할 수 있다.<br>
-
-[변경전]
-
-```java
-public void feed(Tiger tiger) {
-    System.out.println("feed apple");
-}
-
-public void feed(Lion lion) {
-    System.out.println("feed banana");
-}
-```
-
-[변경후]
-
-```java
-public void feed(Predator predator) {
-    System.out.println("feed apple");
-}
-```
-
-feed 메소드의 입력으로 Tiger, Lion을 각각 필요로 했지만 이제 이것을 Predator라는 인터페이스로 대체할 수 있게 되었다.<br>
-tiger, lion은 각각 Tiger, Lion의 객체이기도 하지만 Predator 인터페이스의 객체이기도 하기 때문에 위와같이 Predator를 자료형의 타입으로 사용할 수 있는 것이다.<br>
-- tiger - Tiger 클래스의 객체, Predator 인터페이스의 객체
-- lion - Lion 클래스의 객체, Predator 인터페이스의 객체
-
-※ 이와같이 객체가 한 개 이상의 자료형 타입을 갖게되는 특성을 다형성(폴리모피즘)이라고 한다.<br>
-이제 어떤 육식동물이 추가되더라도 ZooKeeper는 feed 메소드를 추가할 필요가 없다.<br>
-다만 육식동물이 추가 될 때마다 다음과 같이 Predator 인터페이스를 구현한 클래스를 작성하기만 하면 되는 것이다.<br>
-
-[Crocodile.java]
-
-```java
-public class Crocodile extends Animal implements Predator {
-}
-```
-
-눈치가 빠르다면 이제 왜 인터페이스가 필요한지 감을 잡았을 것이다.<br>
-보통 중요 클래스를 작성하는 입장이라면(여기서라면 ZooKeeper가 중요한 클래스가 될 것이다) 클래스의 구현체와 상관없이 인터페이스를 기준으로 중요 클래스를 작성해야만 한다.<br>
-구현체(Tiger, Lion, Crocodile,...)는 늘어가지만 인터페이스(Predator)는 하나이기 때문이다.<br>
-자, 그런데 위 ZooKeeper 클래스에 약간의 문제가 발생했다.<br>
-아래의 ZooKeeper클래스의 feed 메소드를 보면 호랑이가 오던지, 사자가 오던지 무조건 "feed apple" 이라는 문자열을 출력한다.<br>
-사자가 오면 "feed banana" 를 출력해야 하지 않겠는가
-
-```java
-public void feed(Predator predator) {
-    System.out.println("feed apple");
-}
-```
-
-역시 인터페이스의 마법을 부려보자. Predator 인터페이스에 다음과 같은 메소드를 추가 해 보자.<br>
-
-[Predator.java]
-
-```java
-public interface Predator {
-    public String getFood();
-}
-```
-
-getFood 라는 메소드를 추가했다. 그런데 좀 이상하다. 메소드에 몸통이 없다?<br>
-인터페이스의 메소드는 메소드의 이름과 입출력에 대한 정의만 있고 그 내용은 없다. 그 이유는 인터페이스는 규칙이기 때문이다.<br>
-위에서 설정한 getFood라는 메소드는 인터페이스를 implements한 클래스들이 구현해야만 하는 것이다.<br>
-인터페이스에 위처럼 메소드를 추가하면 Tiger, Lion등 Predator 인터페이스를 구현한 클래스들에서 컴파일 오류가 발생할 것이다.<br>
-오류를 해결하기 위해 Tiger, Lion에 getFood 메소드를 구현하도록 하자.<br>
-
-[Tiger.java]
-
-```java
-public class Tiger extends Animal implements Predator {
-    public String getFood() {
-        return "apple";
-    }
-}
-```
-
-[Lion.java]
-
-```java
-public class Lion extends Animal implements Predator {
-    public String getFood() {
-        return "banana";
-    }
-}
-```
-
-getFood 메소드는 육식동물의 먹이인 "apple", "banana"등을 리턴하도록 작성했다.<br>
-이상없이 컴파일이 잘 될 것이다. 이제 ZooKeeper 클래스도 다음과 같이 변경이 가능하다.
-
-```java
-public class ZooKeeper {    
-    public void feed(Predator predator) {
-        System.out.println("feed "+predator.getFood());
-    }
-}
-```
-
-feed 메소드가 "feed apple" 을 출력하던 것에서 "feed "+predator.getFood()를 출력하도록 변경되었다.<br>
-predator.getFood()를 호출하면 Predator 인터페이스를 구현한 구현체(Tiger, Lion)의 getFood() 메소드가 호출된다.<br>
-그리고 main 메소드를 다시 실행시켜 보자. 원하던 데로 다음과 같은 결과값이 출력되는 것을 확인할 수 있을 것이다.
-
-```
-feed apple
-feed banana
-```
-
-이 챕터에서 가장 중요한 부분은 왜 인터페이스가 필요한지에 대해서 이해하는 것이다.<br>
-육식 동물들의 종류만큼의 feed 메소드가 필요했던 ZooKeeper 클래스를 Predator 인터페이스를 이용하여 구현했더니 단 한개의 feed 메소드로 구현이 가능해졌다.<br>
-여기서 중요한 점은 메소드의 갯수가 줄어들었다는 점이 아니라 ZooKeeper클래스가 동물들의 종류에 의존적인 클래스에서 동물들의 종류와 상관없는 독립적인 클래스가 되었다는 점이다.<br>
-바로 이 점이 인터페이스의 핵심이다.
 
 ### 참고
 ---
 
 ```
-https://eskeptor.tistory.com/59?category=928923
-https://wikidocs.net/217
+http://www.tcpschool.com/java/java_polymorphism_interface
 ```
