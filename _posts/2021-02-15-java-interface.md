@@ -14,7 +14,7 @@ sidebar:
   nav: "docs"
  
 date: 2021-02-15
-last_modified_at: 2021-02-15
+last_modified_at: 2021-02-16
 ---
 
 ### 인터페이스(interface)란?
