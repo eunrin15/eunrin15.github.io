@@ -30,6 +30,17 @@ docs:
       - title: "HTML"
         url: /categories/#html
 
+  - title: DATA
+    children:
+      - title: "jQuery"
+        url: /categories/#jquery
+      - title: "XML"
+        url: /categories/#xml
+      - title: "AJAX"
+        url: /categories/#ajax
+      - title: "JSON"
+        url: /categories/#json
+
   - title: PROGRAMMING
     children:
       - title: "Java"
