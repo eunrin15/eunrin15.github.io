@@ -25,12 +25,9 @@ table에서 thead는 고정된 채로 tbody의 내용들만 스크롤해서 보�
 ---
 
 ```css
-table, tr td {
-    border: 1px solid red
-}
 tbody {
     display: block;
-    height: 50px;
+    height: 100px;
     overflow: auto;
 }
 thead, tbody tr {
