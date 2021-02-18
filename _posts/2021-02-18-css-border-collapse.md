@@ -33,7 +33,7 @@ tr{
 
 ### 설명
 ---
-border-collapse속성은 간격을 설정할 수 있습니다.
+border-collapse속성은 간격을 설정할 수 있습니다.<br>
 속성값이 separate이라면 간격의 크기는 border-spacing 속성으로 설정할 수 있습니다.
 
 ### 문법
