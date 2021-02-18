@@ -21,7 +21,7 @@ last_modified_at: 2021-02-18
 ---
 옵션 메뉴가 있는 드롭다운 리스트를 만들고 싶다.
 
-### <select> 태그
+### select 태그
 ---
 select 태그는 옵션 메뉴를 제공하는 드롭다운 리스트(drop-down list)를 정의할 때 사용합니다.
 
@@ -35,7 +35,7 @@ select 태그는 옵션 메뉴를 제공하는 드롭다운 리스트(drop-down 
 |required|required|폼 데이터(form data)가 서버로 제출되기 전 사용자가 반드시 드롭다운 리스트의 값을 선택해야 함을 명시함.|
 |size|숫자|드롭다운 리스트에서 한 번에 보일 옵션의 개수를 명시함.|
 
-### <option> 태그
+### option 태그
 ---
 option 태그는 옵션 메뉴를 제공하는 드롭다운 리스트(drop-down list)에서 사용되는 하나의 옵션을 정의할 때 사용합니다.<br>
 이러한 option 요소는 select 요소나 datalist 요소 내부에만 위치할 수 있습니다.<br>
