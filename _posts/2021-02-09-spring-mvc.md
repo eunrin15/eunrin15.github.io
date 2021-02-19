@@ -37,12 +37,18 @@ MVC 패턴은 UI 코드와 비즈니스 코드를 분리함으로써 종속성�
 
 ### Spring MVC의 핵심 컴포넌트
 ---
-1. DispatcherServlet<br>Spring MVC Framework의 Front Controller, 웹요청과 응답의 Life Cycle을 주관한다.
-2. HandlerMapping<br>웹요청시 해당 URL을 어떤 Controller가 처리할지 결정한다.
-3. Controller<br>비지니스 로직을 수행하고 결과 데이터를 ModelAndView에 반영한다.
-4. ModelAndView<br>Controller가 수행 결과를 반영하는 Model 데이터 객체와 이동할 페이지 정보(또는 View객체)로 이루어져 있다.
-5. ViewResolver<br>어떤 View를 선택할지 결정한다.
-6. View<br>결과 데이터인 Model 객체를 display한다.
+1. DispatcherServlet<br>
+Spring MVC Framework의 Front Controller, 웹요청과 응답의 Life Cycle을 주관한다.
+2. HandlerMapping<br>
+웹요청시 해당 URL을 어떤 Controller가 처리할지 결정한다.
+3. Controller<br>
+비지니스 로직을 수행하고 결과 데이터를 ModelAndView에 반영한다.
+4. ModelAndView<br>
+Controller가 수행 결과를 반영하는 Model 데이터 객체와 이동할 페이지 정보(또는 View객체)로 이루어져 있다.
+5. ViewResolver<br>
+어떤 View를 선택할지 결정한다.
+6. View<br>
+결과 데이터인 Model 객체를 display한다.
 
 ### Spring MVC 컴포넌트 간의 관계와 흐름
 ---

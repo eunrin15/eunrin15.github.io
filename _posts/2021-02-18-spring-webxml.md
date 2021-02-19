@@ -46,7 +46,7 @@ web.xml 파일의 루트 엘리먼트(root element)입니다.<br>
 ### servlet 태그
 ---
 web.xml은 URL 경로와 해당 경로의 요청을 처리하는 서블릿 사이의 매핑을 정의합니다.<br>
-웹 서버는 이 구성을 사용하여 특정한 요청을 처리할 서블릿을 식별하고 요청 메서드에 해당하는 클래스 메서드를 호출합니다.(예: HTTP GET 요청의 doGet() 메서드)<br>
+웹 서버는 이 구성을 사용하여 특정한 요청을 처리할 서블릿을 식별하고 요청 메서드에 해당하는 클래스 메서드를 호출합니다.<br>
 URL을 서블릿에 매핑하려면 servlet 요소로 서블릿을 선언한 후 servlet-mapping 요소로 URL 경로에서 서블릿 선언으로 이어지는 매핑을 정의합니다.<br>
 servlet 요소에는 파일의 다른 요소에서 서블릿을 참조하는 데 사용할 이름, 서블릿에 사용할 클래스, 초기화 매개변수가 포함됩니다.<br>
 여러 초기화 매개변수에 동일한 클래스를 사용해서 여러 서블릿을 선언할 수 있습니다. 각 서블릿의 이름은 web.xml에서 고유해야 합니다.
@@ -78,7 +78,7 @@ spring에서는 DispatcherServlet이 모든 요청을 받고, 요청의 URL과 �
 ### ContextLoaderListener
 ---
 Spring MVC는 web.xml - dispatcher.xml 로부터 1개 이상의 스프링 설정 정보를 읽어들일수 있습니다.<br>
-이때 한개만으로 충분한 경우 dispatcher 에 지정하면 되지만 2개 이상이면 너무 복잡해지므로 contextConfigLocation 초기화 파라미터에 설정파일 목록을 지정하면 된다.
+이때 한개만으로 충분한 경우 dispatcher 에 지정하면 되지만 2개 이상이면 너무 복잡해지므로 contextConfigLocation 초기화 파라미터에 설정파일 목록을 지정하면 됩니다.
 
 ```xml
 <listener>
@@ -96,14 +96,15 @@ Spring MVC는 web.xml - dispatcher.xml 로부터 1개 이상의 스프링 설정
 
 ### JSP
 ---
-앱은 JSP(자바 서버 페이지)를 사용해서 웹 페이지를 구현할 수 있습니다.<br>
+앱은 JSP(Java Server Pages)를 사용해서 웹 페이지를 구현할 수 있습니다.<br>
 JSP는 자바 코드와 혼합된 정적 콘텐츠(예: HTML)를 사용하여 정의된 서블릿입니다.<br>
 App Engine은 JSP 자동 컴파일 및 URL 매핑을 지원합니다.<br>
 애플리케이션의 WAR(WEB-INF/)에서 파일 이름이 .jsp로 끝나는 JSP 파일은 서블릿 클래스로 자동으로 컴파일되며 WAR 루트에서 JSP 파일 경로에 해당하는 URL 경로에 매핑됩니다.<br>
 예를 들어 WAR의 register/ 하위 디렉토리에 이름이 start.jsp인 JSP 파일이 앱에 포함된 경우 App Engine이 이를 컴파일하여 URL 경로 /register/start.jsp로 매핑합니다.<br>
 JSP가 URL에 매핑되는 방식을 더 세밀하게 제어하려면 배포 설명자의 servlet 요소에 매핑을 선언하여 명시적으로 지정할 수 있습니다.<br>
 servlet-class 요소 대신 WAR 루트의 JSP 파일에 대한 경로로 jsp-file 요소를 지정합니다.<br>
-JSP의 servlet 요소는 초기화 매개변수를 포함할 수 있습니다.
+JSP의 servlet 요소는 초기화 매개변수를 포함할 수 있습니다.<br>
+JSP가 애플리케이션의 루트 디렉터리에 있는 경우 jsp-file은 슬래시(/)로 시작해야 합니다.
 
 ```xml
 <servlet>
@@ -116,8 +117,6 @@ JSP의 servlet 요소는 초기화 매개변수를 포함할 수 있습니다.
     <url-pattern>/register/*</url-pattern>
 </servlet-mapping>
 ```
-
-JSP가 애플리케이션의 루트 디렉터리에 있는 경우 jsp-file은 슬래시(/)로 시작해야 합니다.
 
 ### taglib 태그
 ---
