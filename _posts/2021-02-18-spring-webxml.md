@@ -14,7 +14,7 @@ sidebar:
   nav: "docs"
  
 date: 2021-02-18
-last_modified_at: 2021-02-18
+last_modified_at: 2021-02-19
 ---
 
 ### web.xml이란?
@@ -74,18 +74,6 @@ servlet-mapping은 url pattern으로 지정된 값으로 웹 요청이 들어왔
 spring에서는 DispatcherServlet이 모든 요청을 받고, 요청의 URL과 맵핑하는 Controller에 위임합니다.<br>
 예를 들어 Controller class에 @RequestMapping("/list") annotation으로 지정되어 잇는 method가 존재하면 http://localhost:8080/list.do 요청 시 DispatcherServlet이 해당하는 URL과 mapping되는 정보를 찾은 후 연결되는 method에 요청을 위임합니다.<br>
 즉, *.do에 해당하는 요청이 있을경우 /WEB-INF/spring/dispatcher-servlet.xml가 호출이 됩니다.
-    
-### root-context.xml 설정
----
-servlet에 관련된 설정은 servlet-context에 servlet외의 설정에 관련된 내용은 root-cotext에 적어줍니다.<br>
-[내용추가 해야함]
-
-```xml
-<context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>/WEB-INF/spring/root-context.xml</param-value>
-</context-param>
-```
 
 ### ContextLoaderListener
 ---
@@ -129,9 +117,9 @@ JSP의 servlet 요소는 초기화 매개변수를 포함할 수 있습니다.
 </servlet-mapping>
 ```
 
-참고: JSP가 애플리케이션의 루트 디렉터리에 있는 경우 <jsp-file>은 슬래시(/)로 시작해야 합니다.
+JSP가 애플리케이션의 루트 디렉터리에 있는 경우 jsp-file은 슬래시(/)로 시작해야 합니다.
 
-### taglib
+### taglib 태그
 ---
 JSP 태그 라이브러리를 설치할 수 있습니다.<br>
 태그 라이브러리에는 JSP TLD(태그 라이브러리 설명자) 파일의 경로(taglib-location) 및 JSP에서 로드할 라이브러리를 선택하는 데 사용하는 URI(taglib-uri)가 포함됩니다.<br>
@@ -294,3 +282,15 @@ j_username, j_password, j_security_check 와 같이 정해진 명칭으로 데�
 서블릿이 로딩될 때 로딩 순서를 결정하는 값입니다.<br>
 톰캣이 구동되고 서블릿이 로딩되기 전 해당 서블릿에 요청이 들어오면 서블릿이 구동되기 전까지 기다려야 합니다.<br>
 이 중 우선순위가 높은 서블릿부터 구동할 때 쓰이는 값입니다.
+
+```xml
+<servlet>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring/dispatcher-servlet.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+```

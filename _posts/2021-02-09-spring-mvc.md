@@ -14,7 +14,7 @@ sidebar:
   nav: "docs"
  
 date: 2021-02-09
-last_modified_at: 2021-02-15
+last_modified_at: 2021-02-19
 ---
 
 ### 구성요소
@@ -57,6 +57,8 @@ MVC 패턴은 UI 코드와 비즈니스 코드를 분리함으로써 종속성�
 ---
 Controller로 향하는 모든 웹요청의 진입점이며, 웹요청을 처리하며, 결과 데이터를 Client에게 응답 한다.<br>
 Spring MVC의 웹요청 Life Cycle을 주관<br>
+이 때 DispatcherServlet이 모든 요청을 가로채는 건 아니고 [**web.xml**](https://eunrin15.github.io/spring/spring-webxml)에 등록된 내용만 가로챈다.<br>
+최초의 web.xml 에서는 url-pattern이 '/'와 같이 해당 애플리케이션의 모든 URL로 등록돼있기 때문에, 만약 *. do와 같이 특정 URL만 적용하고 싶다면 url-pattern의 내용을 바꿔주어 범위를 변경하면 된다.<br>
 ![MVC컴포넌트 간의 관계와 흐름](/imgsrc/Spring_MVC_DispatcherServlet.jpg)
 
 ### DispatcherServlet, ApplicationContext, WebApplicationContext
