@@ -49,3 +49,4 @@ var doSomething = function(){
 
 ### 다른 해결방법
 ---
+[**ajax의 async**](https://eunrin15.github.io/ajax/ajax-async)

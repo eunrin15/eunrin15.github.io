@@ -33,3 +33,4 @@ async : false;
 
 ### 다른 해결방법
 ---
+[**bind와 unbind**](https://eunrin15.github.io/jquery/jquery-bind-unbind)
