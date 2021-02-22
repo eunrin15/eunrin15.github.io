@@ -28,21 +28,21 @@ Servlet Container에서 HTTP프로토콜을 통해 들어오는 모든 요청을
 ![Spring_Dispatcher_Servlet_Flow](/imgsrc/Spring_Dispatcher_Servlet_Flow.png)
 
 1. 클라이언트로부터 요청(Request) 접수<br>
-서블릿 컨테이너에서 받은 HTTP요청을 Dispatcherservlet에 할당해주는데 이를 먼저 web.xml에서 설정해준다.<br>
-web.xml에서 서블릿 설정과 url매핑을 설정하며, 요청이 들어오면 Dispatcherservlet에서 요청을 접수한다.
+서블릿 컨테이너에서 받은 HTTP요청을 Dispatcherservlet에 할당해주는데 이를 먼저 web.xml에서 설정해줍니다.<br>
+web.xml에서 서블릿 설정과 url매핑을 설정하며, 요청이 들어오면 Dispatcherservlet에서 요청을 접수합니다.
 
 2. Dispatcherservlet에서 컨트롤러(Controller)로 위임<br>
-위의 url매핑대로 요청이 접수되면 Dispatcherservlet은 위의 MVC 흐름 그림처럼 Handler Mapping을 통해 해당 요청을 알맞은 컨트롤러로 위임한다.<br>
-Handler는 url요청을 다루는 녀석으로 요청url과 컨트롤러를 매핑하는 역할을 한다.
+위의 url매핑대로 요청이 접수되면 Dispatcherservlet은 위의 MVC 흐름 그림처럼 Handler Mapping을 통해 해당 요청을 알맞은 컨트롤러로 위임합니다.<br>
+Handler는 url요청을 다루는 녀석으로 요청url과 컨트롤러를 매핑하는 역할을 힙니다.
 
 3. 컨트롤러(Controller)의 모델 생성<br>
-HandlerMapping을 통해 요청을 위임받은 컨트롤러(Controller)는 필요한 비즈니스 로직을 호출/수행하여 처리 결과(모델,M)를 생성하고 이 모델(M)과 출력될 뷰(View)를 Dispatcherservlet에 반환해준다.
+HandlerMapping을 통해 요청을 위임받은 컨트롤러(Controller)는 필요한 비즈니스 로직을 호출/수행하여 처리 결과(모델,M)를 생성하고 이 모델(M)과 출력될 뷰(View)를 Dispatcherservlet에 반환해줍니다.
 
 4. ViewResolver<br>
-컨트롤러(Controller)로 부터 ModelAndView 정보를 전달받은 Dispatcherservlet은 ViewResolver란 클래스를 이용하여 사용자에게 출력할 View 객체를 얻게 된다.
+컨트롤러(Controller)로 부터 ModelAndView 정보를 전달받은 Dispatcherservlet은 ViewResolver란 클래스를 이용하여 사용자에게 출력할 View 객체를 얻게 됩니다.
 
 5. View<br>
-ViewResolver를 통해 얻은 View객체를 통해 사용자에게 보여줄 화면을 출력한다.
+ViewResolver를 통해 얻은 View객체를 통해 사용자에게 보여줄 화면을 출력합니다.
 
 ### 관련 포스팅
 ---
