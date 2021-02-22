@@ -25,6 +25,7 @@ javax.servlet.http에 속한 인터페이스로 javax.servlet에 있는 ServletR
 
 ### Method Summary
 ---
+
 |타입|메소드명|설명|
 |:----:|:----:|:----|
 |boolean|authenticate(HttpServletResponse response)|Use the container login mechanism configured for the ServletContext to authenticate the user making this request.|
@@ -57,3 +58,4 @@ javax.servlet.http에 속한 인터페이스로 javax.servlet에 있는 ServletR
 |boolean|isUserInRole(java.lang.String role)|Returns a boolean indicating whether the authenticated user is included in the specified logical "role".|
 |void|login(java.lang.String username, java.lang.String password)|Validate the provided username and password in the password validation realm used by the web container login mechanism configured for the ServletContext.|
 |voidlogout()|Establish null as the value returned when getUserPrincipal, getRemoteUser, and getAuthType is called on the request.|
+
