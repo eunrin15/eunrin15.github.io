@@ -43,3 +43,7 @@ HandlerMapping을 통해 요청을 위임받은 컨트롤러(Controller)는 필�
 
 5. View<br>
 ViewResolver를 통해 얻은 View객체를 통해 사용자에게 보여줄 화면을 출력한다.
+
+### 관련 포스팅
+---
+[**web.xml**](https://eunrin15.github.io/spring/spring-webxml)

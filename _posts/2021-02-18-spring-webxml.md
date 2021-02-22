@@ -293,3 +293,7 @@ j_username, j_password, j_security_check 와 같이 정해진 명칭으로 데�
     <load-on-startup>1</load-on-startup>
 </servlet>
 ```
+
+### 관련 포스팅
+---
+[**Dispatcher-Servlet**](https://eunrin15.github.io/spring/spring-dispatcher-servlet)
