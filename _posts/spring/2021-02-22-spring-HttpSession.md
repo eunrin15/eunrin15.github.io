@@ -43,6 +43,7 @@ HttpSession은 로그인 처리할 때 유용하게 쓰인다.<br>
 
 ### 메소드
 ---
+
 |타입|메소드|설명|
 |:----:|:----:|:----|
 |java.lang.Object|getAttribute(String name)|세션 속성명이 name인 속성의 값을 Object 타입으로 리턴합니다.<br>해당 되는 속성명이 없을 경우에는 null 값을 리턴합니다.|
