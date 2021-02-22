@@ -20,8 +20,7 @@ last_modified_at: 2021-02-22
 ### ModelMap이란?
 ---
 atg.service.actor에 속한 인터페이스로 java.util.Map< java.lang.String,java.lang.Object >, atg.service.actor.Model을 상속받습니다.<br>
-@RequestMapping 메서드로 ModelAndView, Model, Map을 리턴하는 경우 모델 데이터가 뷰(view)에 전달됩니다.<br>
-이때 ModelMap Class는 View에 data를 심어 같이 전달해줍니다.
+@RequestMapping 메서드로 Model, ModelMap을 리턴하는 경우 모델 데이터가 뷰(view)에 전달됩니다.
 
 ### 메소드
 ---
