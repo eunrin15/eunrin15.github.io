@@ -21,7 +21,7 @@ last_modified_at: 2021-02-22
 ---
 javax.servlet.http에 속한 인터페이스로 javax.servlet에 있는 ServletRequest을 상속받습니다.<br>
 클라이언트로부터 서버로 요청이 들어오면 서버에서는 HttpServletRequest를 생성하며, 요청정보에 있는 패스로 매핑된 서블릿에게 전달합니다.<br>
-서블릿 컨테이너는 이렇게 전달받은 내용들을 파라미터(URL정보, 쿠키, 헤더, GET/POST 등으로 전송한 값)로 HttpServletRequest객체를 만들어 서블릿의 서비스 메서드(doGet, doPost 등)에 인수로 전달합니다.
+서블릿 컨테이너는 이렇게 전달받은 내용들을 파라미터(URL정보, 쿠키, 헤더, GET/POST 등으로 전송한 값)로 HttpServletRequest객체를 만들어 서블릿의 서비스 메서드(doGet, doPost 등)에 인자로 전달합니다.
 
 ### 메소드
 ---
