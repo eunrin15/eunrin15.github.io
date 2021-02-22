@@ -34,12 +34,12 @@ javax.servlet.http에 속한 인터페이스로 javax.servlet에 있는 ServletR
 |Cookie[]|getCookies()|Returns an array containing all of the Cookie objects the client sent with this request.|
 |long|getDateHeader(java.lang.String name)|Returns the value of the specified request header as a long value that represents a Date object.|
 |java.lang.String|getHeader(java.lang.String name)|Returns the value of the specified request header as a String.|
-|java.util.Enumeration<java.lang.String>|getHeaderNames()|Returns an enumeration of all the header names this request contains.|
-|java.util.Enumeration<java.lang.String>|getHeaders(java.lang.String name)|Returns all the values of the specified request header as an Enumeration of String objects.|
+|java.util.Enumeration< java.lang.String >|getHeaderNames()|Returns an enumeration of all the header names this request contains.|
+|java.util.Enumeration< java.lang.String >|getHeaders(java.lang.String name)|Returns all the values of the specified request header as an Enumeration of String objects.|
 |int|getIntHeader(java.lang.String name)|Returns the value of the specified request header as an int.|
 |java.lang.String|getMethod()|Returns the name of the HTTP method with which this request was made, for example, GET, POST, or PUT.|
 |Part|getPart(java.lang.String name)|Gets the Part with the given name.|
-|java.util.Collection<Part>|getParts()|Gets all the Part components of this request, provided that it is of type multipart/form-data.|
+|java.util.Collection< Part >|getParts()|Gets all the Part components of this request, provided that it is of type multipart/form-data.|
 |java.lang.String|getPathInfo()|Returns any extra path information associated with the URL the client sent when it made this request.|
 |java.lang.String|getPathTranslated()|Returns any extra path information after the servlet name but before the query string, and translates it to a real path.|
 |java.lang.String|getQueryString()|Returns the query string that is contained in the request URL after the path.|
