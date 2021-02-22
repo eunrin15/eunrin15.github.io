@@ -28,9 +28,7 @@ javax.servlet.http에 속한 인터페이스로 javax.servlet에 있는 ServletR
 
 |타입|메소드명|설명|
 |:----:|:----:|:----|
-|boolean|authenticate(HttpServletResponse response)|Use the container login mechanism configured for the ServletContext to authenticate the user making this request.<br>
-ServletContext에서 명시된 로그인 메커니즘을 이용하여 사용자 인증 여부 확인<br>
-인증 여부에 따라 true, false 반환|
+|boolean|authenticate(HttpServletResponse response)|Use the container login mechanism configured for the ServletContext to authenticate the user making this request.<br>ServletContext에서 명시된 로그인 메커니즘을 이용하여 사용자 인증 여부 확인<br>인증 여부에 따라 true, false 반환|
 |java.lang.String|getAuthType()|Returns the name of the authentication scheme used to protect the servlet.|
 |java.lang.String|getContextPath()|Returns the portion of the request URI that indicates the context of the request.|
 |Cookie[]|getCookies()|Returns an array containing all of the Cookie objects the client sent with this request.|
