@@ -59,3 +59,6 @@ javax.servlet.http에 속한 인터페이스로 javax.servlet에 있는 [**Servl
 |void|login(java.lang.String username, java.lang.String password)|username과 password로 login을 진행합니다.<br>ServletContext에서 정의한 login 메커니증에 따라 성공적으로 로그인되었다면 getUserPrincipal, getRemoteUser, getAuthType의 값이 만들어져 반환됩니다.|Validate the provided username and password in the password validation realm used by the web container login mechanism configured for the ServletContext.|
 |void|logout()|로그아웃 이후 getUserPrincipal, getRemoteUser, getAuthType 함수는 null을 반환하게 됩니다.|Establish null as the value returned when getUserPrincipal, getRemoteUser, and getAuthType is called on the request.|
 
+### 관련 포스팅
+---
+[**ServletRequest**](https://eunrin15.github.io/spring/spring-ServletRequest)

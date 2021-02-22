@@ -68,3 +68,6 @@ HTTP 등장이후 Web Conainer는 HttpServletRequest를 사용하였습니다.
 |AsyncContext|startAsync()|해당 request를 비동기모드로 설정합니다.|Puts this request into asynchronous mode, and initializes its AsyncContext with the original (unwrapped) ServletRequest and ServletResponse objects.|
 |AsyncContext|startAsync(ServletRequest servletRequest, ServletResponse servletResponse)||Puts this request into asynchronous mode, and initializes its AsyncContext with the given request and response objects.|
 
+### 관련 포스팅
+---
+[**HttpServletRequset**](https://eunrin15.github.io/spring/spring-HttpServletRequest)

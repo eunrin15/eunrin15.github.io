@@ -52,3 +52,7 @@ public ModelAndView Main(ModelMap model) {
 
 "${strValue}"
 ```
+
+### 관련 포스팅
+---
+[**Model,ModelMap,ModelAndView**](https://eunrin15.github.io/spring/spring-model-modelmap)

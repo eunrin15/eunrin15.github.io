@@ -14,7 +14,7 @@ sidebar:
   nav: "docs"
  
 date: 2021-02-15
-last_modified_at: 2021-02-15
+last_modified_at: 2021-02-22
 ---
 
 ### Model, ModelMap Vs ModelAndView 차이점
@@ -98,3 +98,7 @@ public ModelAndView test(HttpServletRequest request, ModelAndView mv){
     ModelAndView 저장한 값 : <input type="text" value="${modelAndViewVar }"/><br/>
 </body>
 ```
+
+### 관련 포스팅
+---
+[**ModelMap**](https://eunrin15.github.io/spring/spring-ModelMap)
