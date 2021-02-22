@@ -301,3 +301,8 @@ pom.xml은 상속을 받을 수 있다.
 https://goddaehee.tistory.com/199
 https://jeong-pro.tistory.com/168
 ```
+
+```
+공부하고 참고하여 기록해두는 개인 기록용 포스팅입니다!
+🤔 부족한 부분이 많으니 감안하여 봐주시길 바랍니다. 🤔
+```

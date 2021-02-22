@@ -304,3 +304,8 @@ rowgroup의 경우 해당 th가 속한 tbody, thead, tfoot과 같은 행 집합�
 ```
 https://velog.io/@zuyonze/HTML-Table-%EC%A0%95%EB%A6%AC
 ```
+
+```
+공부하고 참고하여 기록해두는 개인 기록용 포스팅입니다!
+🤔 부족한 부분이 많으니 감안하여 봐주시길 바랍니다. 🤔
+```

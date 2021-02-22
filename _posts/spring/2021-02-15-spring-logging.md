@@ -75,3 +75,8 @@ log4j 는 콘솔, 파일, DB, socket, message, mail 등 다양한 로그 출력 
 |FileAppender|FileAppender는 로깅을 파일에 하고 싶을 때 사용함.|
 |RollingFileAppender|FileAppender는 지정한 파일에 로그가 계속 남으므로 한 파일의 크기가 지나치게 커질 수 있으며, 계획적인 로그관리가 불가능해짐.<br>RollingFileAppender는 파일의 크기 또는 파일백업인덱스 등의 지정을 통해서 특정크기 이상 파일의 크기가 커지게 되면 기존파일을 백업파일로 바꾸고, 다시 처음부터 로깅을 시작함|
 |JDBCAppender|DB에 로그를 출력하기 위한 Appender로 하위에 Driver, URL, User, Password, Sql과 같은 parameter를 정의할 수 있음.<br>다음은 log4j.xml 파일 내의 JDBCAppender에 대한 속성 정의 내용임.<br>EgovConnectionFactory 빈 설정이 필요함|
+
+```
+공부하고 참고하여 기록해두는 개인 기록용 포스팅입니다!
+🤔 부족한 부분이 많으니 감안하여 봐주시길 바랍니다. 🤔
+```

@@ -50,3 +50,8 @@ var doSomething = function(){
 ### 다른 해결방법
 ---
 [**ajax의 async**](https://eunrin15.github.io/ajax/ajax-async)
+
+```
+공부하고 참고하여 기록해두는 개인 기록용 포스팅입니다!
+🤔 부족한 부분이 많으니 감안하여 봐주시길 바랍니다. 🤔
+```

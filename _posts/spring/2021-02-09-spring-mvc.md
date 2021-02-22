@@ -355,3 +355,8 @@ View 이름은 RequestToViewNameTranslator가 URL을 이용하여 결정한다.
 - void<br>
 메소드가 ServletResponse / HttpServletResponse등을 사용하여 직접 응답을 처리하는 경우이다.<br>
 View 이름은 RequestToViewNameTranslator가 결정한다.
+
+```
+공부하고 참고하여 기록해두는 개인 기록용 포스팅입니다!
+🤔 부족한 부분이 많으니 감안하여 봐주시길 바랍니다. 🤔
+```

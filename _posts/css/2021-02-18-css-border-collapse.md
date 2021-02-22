@@ -52,3 +52,8 @@ border-collapse: separate | collapse | initial | inherit
 기본값으로 설정합니다.
 4. inherit<br>
 부모 요소의 속성값을 상속받습니다.
+
+```
+공부하고 참고하여 기록해두는 개인 기록용 포스팅입니다!
+🤔 부족한 부분이 많으니 감안하여 봐주시길 바랍니다. 🤔
+```

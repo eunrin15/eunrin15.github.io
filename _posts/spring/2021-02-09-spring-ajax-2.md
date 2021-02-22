@@ -189,3 +189,8 @@ $.post( "example.do", { name: "gil-dong", location: "seoul" } )
     alert( "Data Loaded: " + data );
 });
 ```
+
+```
+공부하고 참고하여 기록해두는 개인 기록용 포스팅입니다!
+🤔 부족한 부분이 많으니 감안하여 봐주시길 바랍니다. 🤔
+```

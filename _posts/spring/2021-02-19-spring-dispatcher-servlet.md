@@ -47,3 +47,8 @@ ViewResolver를 통해 얻은 View객체를 통해 사용자에게 보여줄 화
 ### 관련 포스팅
 ---
 [**web.xml**](https://eunrin15.github.io/spring/spring-webxml)
+
+```
+공부하고 참고하여 기록해두는 개인 기록용 포스팅입니다!
+🤔 부족한 부분이 많으니 감안하여 봐주시길 바랍니다. 🤔
+```

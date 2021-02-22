@@ -313,3 +313,7 @@ public class ExampleBean {
 
 매핑 규칙은 property element의 ‘name’ attribute의 첫문자를 알파벳 대문자로 변경하고 그 앞에 ‘set’을 붙인 setter 메소드를 호출한다.
 
+```
+공부하고 참고하여 기록해두는 개인 기록용 포스팅입니다!
+🤔 부족한 부분이 많으니 감안하여 봐주시길 바랍니다. 🤔
+```

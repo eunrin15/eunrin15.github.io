@@ -62,8 +62,6 @@ final 자료형 변수명 = 값;
 num1은 일반 변수고 num2는 앞에 final이 붙었으므로 "상수"가 된겁니다.<br>
 
 ```java
-package testCom;
-
 public class TestClass {
 	public static void main(String[] args) {
 		int num1 = 5;
@@ -77,3 +75,8 @@ public class TestClass {
 ### 상수를 언제 쓰나?
 ---
 변경이 절대로 안되고, 절대로 되면 안되는 변수를 상수로 선언합니다.
+
+```
+공부하고 참고하여 기록해두는 개인 기록용 포스팅입니다!
+🤔 부족한 부분이 많으니 감안하여 봐주시길 바랍니다. 🤔
+```

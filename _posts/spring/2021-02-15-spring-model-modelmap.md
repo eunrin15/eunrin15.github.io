@@ -102,3 +102,8 @@ public ModelAndView test(HttpServletRequest request, ModelAndView mv){
 ### 관련 포스팅
 ---
 [**ModelMap**](https://eunrin15.github.io/spring/spring-ModelMap)
+
+```
+공부하고 참고하여 기록해두는 개인 기록용 포스팅입니다!
+🤔 부족한 부분이 많으니 감안하여 봐주시길 바랍니다. 🤔
+```

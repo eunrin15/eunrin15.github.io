@@ -77,3 +77,8 @@ https://okky.kr/article/498323
 https://gap85.tistory.com/entry/JSP-%EC%84%B8%EC%85%98
 https://tsop.tistory.com/15
 ```
+
+```
+공부하고 참고하여 기록해두는 개인 기록용 포스팅입니다!
+🤔 부족한 부분이 많으니 감안하여 봐주시길 바랍니다. 🤔
+```
