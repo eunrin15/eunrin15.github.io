@@ -23,12 +23,14 @@ javax.servlet.http에 속한 인터페이스로 javax.servlet에 있는 ServletR
 클라이언트로부터 서버로 요청이 들어오면 서버에서는 HttpServletRequest를 생성하며, 요청정보에 있는 패스로 매핑된 서블릿에게 전달합니다.<br>
 서블릿 컨테이너는 이렇게 전달받은 내용들을 파라미터(URL정보, 쿠키, 헤더, GET/POST 등으로 전송한 값)로 HttpServletRequest객체를 만들어 서블릿의 서비스 메서드(doGet, doPost 등)에 인수로 전달합니다.
 
-### Method Summary
+### 메소드
 ---
 
 |타입|메소드명|설명|
 |:----:|:----:|:----|
-|boolean|authenticate(HttpServletResponse response)|Use the container login mechanism configured for the ServletContext to authenticate the user making this request.|
+|boolean|authenticate(HttpServletResponse response)|Use the container login mechanism configured for the ServletContext to authenticate the user making this request.<br>
+ServletContext에서 명시된 로그인 메커니즘을 이용하여 사용자 인증 여부 확인<br>
+인증 여부에 따라 true, false 반환|
 |java.lang.String|getAuthType()|Returns the name of the authentication scheme used to protect the servlet.|
 |java.lang.String|getContextPath()|Returns the portion of the request URI that indicates the context of the request.|
 |Cookie[]|getCookies()|Returns an array containing all of the Cookie objects the client sent with this request.|
