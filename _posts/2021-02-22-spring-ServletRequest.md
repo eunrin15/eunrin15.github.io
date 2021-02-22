@@ -26,6 +26,7 @@ HTTP Protocol에서 존재하는 추가적인 데이터는 ServletRequest를 상
 
 ### 메소드
 ---
+
 |타입|메소드명|설명|원문|
 |:----:|:----:|:----|:----|
 |AsyncContext|getAsyncContext()||Gets the AsyncContext that was created or reinitialized by the most recent invocation of startAsync() or startAsync(ServletRequest,ServletResponse) on this request.|
@@ -64,3 +65,4 @@ HTTP Protocol에서 존재하는 추가적인 데이터는 ServletRequest를 상
 |void|setCharacterEncoding(java.lang.String env)|Request Body에 대해 인코딩한 정보를 정의합니다.<br>UnsupportedEncodingException: 이미 인코딩 정보가 지정되어 있을 때 발생하는 예외|Overrides the name of the character encoding used in the body of this request.|
 |AsyncContext|startAsync()|해당 request를 비동기모드로 설정합니다.|Puts this request into asynchronous mode, and initializes its AsyncContext with the original (unwrapped) ServletRequest and ServletResponse objects.|
 |AsyncContext|startAsync(ServletRequest servletRequest, ServletResponse servletResponse)||Puts this request into asynchronous mode, and initializes its AsyncContext with the given request and response objects.|
+
