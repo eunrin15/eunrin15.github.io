@@ -1,6 +1,6 @@
 ---
-title:  "[jQuery] Ajax 기본"
-excerpt: "Ajax 개념 정리"
+title:  "[jQuery] Ajax"
+excerpt: "jQuery Ajax 개념 정리"
 
 categories:
   - jQuery
