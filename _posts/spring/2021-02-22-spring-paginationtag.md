@@ -23,10 +23,10 @@ last_modified_at: 2021-02-22
 ![Spring_Paginationtag](/imgsrc/Spring_Paginationtag.jpg)
 
 페이징 처리의 편의를 위해 전자정부프레임워크에서 제공하는 태그입니다.<br>
-페이징 기능을 사용할때 기능은 유사하지만 이미지나 라벨등의 포맷만 다양하게 사용하게 되는 경우가 있다.<br>
-따라서 포맷별로 렌더링할 클래스를 빈설정 파일에 설정하고 태그에서 입력된 정보를 기반으로 어떤 렌더링 클래스를 사용할지 결정하는 방식으로 동작한다.<br>
-PaginationRenderer는 포맷에 따라 페이징을 렌더링하는 역활을 담당하고, PaginationManager는 어떤 PaginationRenderer를 사용할지를 담당한다.<br>
-렌더링에 필요한 데이터는 PaginationInfo에 담겨 있다.<br>
+페이징 기능을 사용할때 기능은 유사하지만 이미지나 라벨등의 포맷만 다양하게 사용하게 되는 경우가 있습니다.<br>
+따라서 포맷별로 렌더링할 클래스를 빈설정 파일에 설정하고 태그에서 입력된 정보를 기반으로 어떤 렌더링 클래스를 사용할지 결정하는 방식으로 동작합니다.<br>
+PaginationRenderer는 포맷에 따라 페이징을 렌더링하는 역활을 담당하고, PaginationManager는 어떤 PaginationRenderer를 사용할지를 담당합니다.<br>
+렌더링에 필요한 데이터는 PaginationInfo에 담겨 있습니다.<br>
 
 - 속한 위치<br>
 egovframework.rte.ptl.mvc.tags.ui.pagination
