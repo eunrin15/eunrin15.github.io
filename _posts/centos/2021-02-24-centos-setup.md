@@ -19,10 +19,9 @@ last_modified_at: 2021-02-24
 
 ### 1. CentOS 7 다운
 ---
+CentOS파일을 다운로드 받습니다.
 
 ![CentOS다운](/imgsrc/vm_CentOS7/0.JPG)
-
-CentOS파일을 다운로드 받습니다.
 
 ### 2. 가상머신 설정 과정
 ---
@@ -33,7 +32,7 @@ Oracle VM VirtualBox를 실행 후 새로 만들기를 클릭합니다.
 이름을 작성하고 종류를 Linux의 Red Hat으로 설치합니다.<br>
 64비트가 안보일 시 BIOS의 가상화 설정을 체크하세요.
 
-![설치](/imgsrc/vm_CentOS7/2.JPG)
+![설치](/imgsrc/vm_CentOS7/2.jpg)
 
 메모리를 설정합니다.<br>
 원하시는 크기만큼 설정하면 됩니다.
@@ -71,8 +70,8 @@ Oracle VM VirtualBox를 실행 후 새로 만들기를 클릭합니다.
 
 마지막으로 네트워크에서는 어댑터 2개를 다음과 같이 설정해줬습니다.
 
-![설치](/imgsrc/vm_CentOS7/10.JPG)
-![설치](/imgsrc/vm_CentOS7/11.JPG)
+![설치](/imgsrc/vm_CentOS7/10.jpg)
+![설치](/imgsrc/vm_CentOS7/11.jpg)
 
 3. CentOS 설치 과정
 ---
