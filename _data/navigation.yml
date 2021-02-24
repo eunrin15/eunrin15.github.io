@@ -50,3 +50,5 @@ docs:
     children:
       - title: "CentOS"
         url:  /categories/#centos
+      - title: "MySQL"
+        url:  /categories/#mysql
