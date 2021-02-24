@@ -45,3 +45,8 @@ docs:
     children:
       - title: "Java"
         url:  /categories/#java
+  
+  - title: OS
+    children:
+      - title: "CentOS"
+        url:  /categories/#centos
