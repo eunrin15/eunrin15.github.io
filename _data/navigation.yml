@@ -46,7 +46,7 @@ docs:
       - title: "Java"
         url:  /categories/#java
   
-  - title: OS
+  - title: SERVER
     children:
       - title: "CentOS"
         url:  /categories/#centos
