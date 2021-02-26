@@ -5,7 +5,7 @@ excerpt: "Java Enhanced for문 개념 정리"
 categories:
   - Java
 tags:
-  - [Java, Math]
+  - [Java, Enhanced for, for]
 
 toc: true
 classes: wide
