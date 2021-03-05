@@ -29,6 +29,8 @@ docs:
         url: /categories/#css
       - title: "HTML"
         url: /categories/#html
+      - title: "JAVASCRIPT"
+        url: /categories/#javascript
 
   - title: DATA
     children:
