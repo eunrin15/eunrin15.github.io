@@ -1,11 +1,11 @@
 ---
-title:  "[HTML] select와 option을 이용한 드롭다운 리스트 만들기"
+title:  "[CSS] select와 option을 이용한 드롭다운 리스트 만들기"
 excerpt: "select와 option 설명 및 사용법"
 
 categories:
-  - HTML
+  - CSS
 tags:
-  - [HTML, select, option]
+  - [CSS, select, option]
 
 toc: true
 classes: wide
